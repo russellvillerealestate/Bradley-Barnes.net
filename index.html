@@ -8,25 +8,23 @@
 
   <meta
     name="description"
-    content="Bradley Barnes helps with real estate, property development, rentals, property management, and practical business conversations in Arkansas."
+    content="Bradley Barnes helps with residential and commercial real estate, property development, rentals, property management, and practical business conversations."
   />
 
   <style>
     :root {
-      --ink: #171411;
-      --muted: #665f55;
-      --cream: #fff7e8;
-      --sand: #f3dfbd;
-      --orange: #ff8a3d;
-      --gold: #f7c948;
-      --green: #3f7d4c;
-      --blue: #246bfe;
-      --purple: #7b3ff2;
-      --red: #f04b3f;
+      --navy: #102433;
+      --navy-2: #17384c;
+      --cream: #fff7e9;
+      --sand: #f4dfbb;
+      --rust: #b45f34;
+      --gold: #e3ad4f;
+      --green: #5f7f55;
+      --ink: #1f1c18;
+      --muted: #6c6459;
       --white: #ffffff;
-      --line: rgba(23, 20, 17, 0.12);
-      --shadow: 0 28px 80px rgba(44, 32, 18, 0.18);
-      --radius: 30px;
+      --line: rgba(31, 28, 24, 0.14);
+      --shadow: 0 24px 70px rgba(16, 36, 51, 0.18);
     }
 
     * {
@@ -42,12 +40,16 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 10% 10%, rgba(255, 138, 61, 0.25), transparent 28%),
-        radial-gradient(circle at 90% 4%, rgba(36, 107, 254, 0.18), transparent 24%),
-        radial-gradient(circle at 80% 90%, rgba(63, 125, 76, 0.18), transparent 28%),
+        radial-gradient(circle at 10% 0%, rgba(227, 173, 79, 0.32), transparent 28%),
+        radial-gradient(circle at 95% 15%, rgba(95, 127, 85, 0.25), transparent 28%),
         var(--cream);
-      line-height: 1.35;
+      line-height: 1.45;
       overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     a {
@@ -60,42 +62,17 @@
       margin: 0 auto;
     }
 
-    .blob {
-      position: fixed;
-      z-index: -1;
-      border-radius: 999px;
-      filter: blur(4px);
-      opacity: 0.85;
-      pointer-events: none;
-    }
-
-    .blob.one {
-      width: 260px;
-      height: 260px;
-      background: var(--gold);
-      top: 90px;
-      right: -80px;
-    }
-
-    .blob.two {
-      width: 220px;
-      height: 220px;
-      background: rgba(123, 63, 242, 0.22);
-      bottom: 80px;
-      left: -90px;
-    }
-
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255, 247, 232, 0.72);
-      backdrop-filter: blur(18px);
+      z-index: 50;
+      background: rgba(255, 247, 233, 0.78);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      min-height: 72px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -107,25 +84,25 @@
       align-items: center;
       gap: 10px;
       font-weight: 900;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.04em;
       font-size: 1.18rem;
     }
 
-    .mark {
+    .brand-mark {
       width: 34px;
       height: 34px;
       border-radius: 12px;
-      background:
-        linear-gradient(135deg, var(--orange), var(--gold));
-      box-shadow: 0 10px 24px rgba(255, 138, 61, 0.35);
+      background: linear-gradient(135deg, var(--rust), var(--gold));
+      box-shadow: 0 12px 28px rgba(180, 95, 52, 0.28);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.95rem;
+      gap: 8px;
       color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
     }
 
     .nav-links a {
@@ -134,95 +111,69 @@
     }
 
     .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.7);
       color: var(--ink);
     }
 
-    .mini-cta {
-      background: var(--ink);
-      color: var(--white) !important;
-      font-weight: 800;
-    }
-
-    main {
-      padding-bottom: 28px;
+    .nav-links .call {
+      background: var(--navy);
+      color: var(--white);
     }
 
     .hero {
-      padding: 74px 0 34px;
+      padding: 42px 0 28px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.16fr 0.84fr;
+      grid-template-columns: 1.04fr 0.96fr;
       gap: 18px;
       align-items: stretch;
     }
 
-    .hero-main,
-    .hero-side,
-    .tile,
-    .contact-panel {
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-main {
-      position: relative;
-      overflow: hidden;
-      min-height: 560px;
-      border-radius: 44px;
+    .hero-copy {
+      min-height: 610px;
+      border-radius: 42px;
       padding: clamp(28px, 5vw, 54px);
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.48)),
-        radial-gradient(circle at 88% 20%, rgba(255, 138, 61, 0.55), transparent 30%),
-        radial-gradient(circle at 8% 90%, rgba(63, 125, 76, 0.32), transparent 32%);
+        linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,247,233,0.68)),
+        radial-gradient(circle at 0% 100%, rgba(180, 95, 52, 0.18), transparent 38%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
     }
 
-    .hero-main::before {
+    .hero-copy::after {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 46% 54% 41% 59%;
-      right: -70px;
-      top: -60px;
-      background: var(--blue);
-      opacity: 0.12;
-      transform: rotate(18deg);
+      width: 280px;
+      height: 280px;
+      right: -110px;
+      top: -90px;
+      border-radius: 44% 56% 63% 37%;
+      background: rgba(227, 173, 79, 0.32);
+      transform: rotate(15deg);
     }
 
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 60% 40% 55% 45%;
-      left: -120px;
-      bottom: -130px;
-      background: var(--orange);
-      opacity: 0.18;
-      transform: rotate(-20deg);
-    }
-
-    .tag-row {
+    .eyebrow {
       position: relative;
       z-index: 2;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(23, 20, 17, 0.1);
+    .pill {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid var(--line);
       color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 12px;
       font-weight: 800;
       font-size: 0.82rem;
     }
@@ -231,41 +182,41 @@
       position: relative;
       z-index: 2;
       margin: 0;
-      max-width: 820px;
-      font-size: clamp(3.5rem, 11vw, 8.8rem);
+      font-size: clamp(3.8rem, 10vw, 8.4rem);
       line-height: 0.84;
       letter-spacing: -0.105em;
+      max-width: 760px;
     }
 
-    .hero-copy {
+    .intro {
       position: relative;
       z-index: 2;
-      margin: 28px 0 0;
-      max-width: 610px;
-      font-size: clamp(1.12rem, 2vw, 1.42rem);
+      max-width: 620px;
+    }
+
+    .intro p {
+      margin: 24px 0 0;
       color: var(--muted);
+      font-size: clamp(1.15rem, 2vw, 1.42rem);
     }
 
     .hero-actions {
-      position: relative;
-      z-index: 2;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 34px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       min-height: 50px;
       padding: 13px 18px;
       border-radius: 999px;
       font-weight: 900;
-      transition: 0.18s ease;
       border: 1px solid transparent;
+      transition: 0.18s ease;
     }
 
     .btn:hover {
@@ -273,376 +224,345 @@
     }
 
     .btn.dark {
-      background: var(--ink);
+      background: var(--navy);
       color: var(--white);
     }
 
     .btn.light {
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.78);
       border-color: var(--line);
     }
 
-    .hero-side {
-      min-height: 560px;
-      border-radius: 44px;
-      padding: 24px;
-      background:
-        linear-gradient(160deg, rgba(23, 20, 17, 0.96), rgba(44, 37, 29, 0.88)),
-        radial-gradient(circle at 20% 20%, rgba(247, 201, 72, 0.32), transparent 34%);
-      color: var(--white);
-      display: grid;
-      align-content: space-between;
+    .hero-photo {
+      min-height: 610px;
+      border-radius: 42px;
       overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: var(--navy);
       position: relative;
     }
 
-    .hero-side::before {
-      content: "";
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      min-height: 610px;
+    }
+
+    .photo-badge {
       position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 44% 56% 70% 30%;
-      right: -80px;
-      bottom: -80px;
-      background: var(--orange);
-      opacity: 0.45;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      background: rgba(16, 36, 51, 0.88);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(14px);
+      border-radius: 28px;
+      padding: 22px;
     }
 
-    .side-top {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      gap: 12px;
-    }
-
-    .side-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 24px;
-      padding: 18px;
-      backdrop-filter: blur(10px);
-    }
-
-    .side-card strong {
+    .photo-badge strong {
       display: block;
-      font-size: 1.05rem;
-      margin-bottom: 5px;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
     }
 
-    .side-card span {
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    .side-bottom {
-      position: relative;
-      z-index: 2;
-    }
-
-    .side-bottom h2 {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 4.4rem);
-      line-height: 0.9;
-      letter-spacing: -0.085em;
-    }
-
-    .side-bottom p {
-      color: rgba(255, 255, 255, 0.72);
-      margin: 16px 0 0;
-      max-width: 360px;
+    .photo-badge span {
+      color: rgba(255,255,255,0.75);
     }
 
     section {
-      padding: 34px 0;
+      padding: 36px 0;
     }
 
-    .section-title {
+    .section-head {
       display: flex;
-      justify-content: space-between;
       align-items: end;
-      gap: 18px;
+      justify-content: space-between;
+      gap: 22px;
       margin-bottom: 18px;
     }
 
-    .section-title h2 {
+    .section-head h2 {
       margin: 0;
-      font-size: clamp(2.4rem, 6vw, 5.6rem);
-      line-height: 0.86;
-      letter-spacing: -0.09em;
+      font-size: clamp(2.6rem, 7vw, 6rem);
+      line-height: 0.84;
+      letter-spacing: -0.095em;
     }
 
-    .section-title p {
+    .section-head p {
       margin: 0;
       color: var(--muted);
-      max-width: 390px;
+      max-width: 420px;
       font-size: 1.05rem;
     }
 
-    .bento {
+    .cards {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr 0.9fr;
       gap: 14px;
     }
 
-    .tile {
-      min-height: 250px;
-      border-radius: var(--radius);
-      padding: 24px;
+    .card {
+      border-radius: 32px;
+      padding: 26px;
+      min-height: 280px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
       position: relative;
-      background: rgba(255, 255, 255, 0.65);
     }
 
-    .tile h3 {
+    .card h3 {
       margin: 0;
-      font-size: clamp(1.35rem, 2.4vw, 2.2rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
+      font-size: clamp(1.55rem, 3vw, 2.45rem);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
       max-width: 360px;
     }
 
-    .tile p {
+    .card p {
       margin: 14px 0 0;
-      color: var(--muted);
-      max-width: 360px;
+      max-width: 370px;
+      font-size: 1rem;
     }
 
-    .tile .num {
+    .card .num {
       font-weight: 900;
-      color: rgba(23, 20, 17, 0.34);
+      opacity: 0.48;
     }
 
-    .tile.big {
+    .card.real-estate {
+      background:
+        linear-gradient(135deg, rgba(16,36,51,0.86), rgba(16,36,51,0.62)),
+        url("russellville-ar-1.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      min-height: 574px;
       grid-row: span 2;
-      min-height: 514px;
+    }
+
+    .card.real-estate p,
+    .card.real-estate .num {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .card.development {
+      background: linear-gradient(135deg, var(--rust), #d69055);
+      color: white;
+    }
+
+    .card.development p,
+    .card.development .num {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .card.rentals {
       background:
-        linear-gradient(145deg, rgba(255, 138, 61, 0.9), rgba(247, 201, 72, 0.75)),
-        var(--orange);
+        linear-gradient(135deg, rgba(95,127,85,0.82), rgba(16,36,51,0.55)),
+        url("russ%20state%20park.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
     }
 
-    .tile.big p {
-      color: rgba(23, 20, 17, 0.72);
-      font-weight: 700;
+    .card.rentals p,
+    .card.rentals .num {
+      color: rgba(255,255,255,0.82);
     }
 
-    .tile.green {
-      background:
-        linear-gradient(135deg, rgba(63, 125, 76, 0.98), rgba(114, 162, 90, 0.82));
-      color: var(--white);
+    .card.business {
+      background: rgba(255,255,255,0.78);
     }
 
-    .tile.green p,
-    .tile.green .num {
-      color: rgba(255, 255, 255, 0.78);
+    .card.simple {
+      background: var(--sand);
     }
 
-    .tile.blue {
-      background:
-        linear-gradient(135deg, rgba(36, 107, 254, 0.92), rgba(123, 63, 242, 0.78));
-      color: var(--white);
-    }
-
-    .tile.blue p,
-    .tile.blue .num {
-      color: rgba(255, 255, 255, 0.78);
-    }
-
-    .tile.white {
-      background: rgba(255, 255, 255, 0.82);
-    }
-
-    .shape {
-      position: absolute;
-      right: -45px;
-      bottom: -45px;
-      width: 160px;
-      height: 160px;
-      border-radius: 38% 62% 53% 47%;
-      background: rgba(255, 255, 255, 0.24);
-      transform: rotate(18deg);
-    }
-
-    .rental-strip {
+    .rent-strip {
       margin-top: 14px;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 18px;
       align-items: center;
-      border-radius: var(--radius);
+      background: var(--navy);
+      color: white;
+      border-radius: 32px;
       padding: 28px;
-      background: var(--ink);
-      color: var(--white);
       box-shadow: var(--shadow);
       overflow: hidden;
       position: relative;
     }
 
-    .rental-strip::after {
+    .rent-strip::after {
       content: "";
       position: absolute;
-      width: 230px;
-      height: 230px;
-      border-radius: 999px;
-      right: -70px;
-      top: -90px;
+      width: 250px;
+      height: 250px;
+      right: -90px;
+      top: -100px;
       background: var(--green);
+      border-radius: 999px;
       opacity: 0.55;
     }
 
-    .rental-strip div,
-    .rental-strip a {
+    .rent-strip div,
+    .rent-strip a {
       position: relative;
       z-index: 2;
     }
 
-    .rental-strip h2 {
+    .rent-strip h2 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3.7rem);
-      line-height: 0.92;
-      letter-spacing: -0.075em;
+      font-size: clamp(2rem, 4.8vw, 4rem);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
     }
 
-    .rental-strip p {
+    .rent-strip p {
       margin: 10px 0 0;
-      color: rgba(255, 255, 255, 0.72);
+      color: rgba(255,255,255,0.74);
     }
 
-    .rental-strip .btn {
-      background: var(--white);
-      color: var(--ink);
+    .rent-strip .btn {
+      background: white;
+      color: var(--navy);
       white-space: nowrap;
     }
 
-    .plain-grid {
+    .reasons {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
-    .plain {
-      border-top: 2px solid var(--ink);
+    .reason {
       padding-top: 16px;
+      border-top: 2px solid var(--ink);
     }
 
-    .plain h3 {
+    .reason h3 {
       margin: 0 0 8px;
       font-size: 1.1rem;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
     }
 
-    .plain p {
+    .reason p {
       margin: 0;
       color: var(--muted);
     }
 
+    .contact {
+      padding-bottom: 70px;
+    }
+
     .contact-panel {
-      border-radius: 44px;
-      padding: clamp(28px, 5vw, 48px);
+      border-radius: 42px;
+      padding: clamp(28px, 5vw, 50px);
       background:
-        radial-gradient(circle at 90% 20%, rgba(240, 75, 63, 0.32), transparent 26%),
-        radial-gradient(circle at 20% 90%, rgba(36, 107, 254, 0.18), transparent 30%),
-        rgba(255, 255, 255, 0.78);
+        linear-gradient(135deg, rgba(255,255,255,0.86), rgba(255,247,233,0.72)),
+        radial-gradient(circle at 85% 15%, rgba(227, 173, 79, 0.32), transparent 28%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 24px;
+      gap: 22px;
       align-items: center;
     }
 
     .contact-panel h2 {
       margin: 0;
-      font-size: clamp(2.8rem, 8vw, 7rem);
+      font-size: clamp(3rem, 8vw, 7rem);
       line-height: 0.82;
-      letter-spacing: -0.095em;
+      letter-spacing: -0.1em;
     }
 
     .contact-panel p {
       margin: 16px 0 0;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 560px;
       font-size: 1.1rem;
     }
 
-    .phone-card {
-      background: var(--ink);
-      color: var(--white);
+    .contact-card {
+      background: var(--navy);
+      color: white;
+      border-radius: 30px;
       padding: 24px;
-      border-radius: 28px;
-      min-width: 260px;
-      box-shadow: 0 22px 60px rgba(23, 20, 17, 0.22);
+      min-width: 310px;
     }
 
-    .phone-card span {
+    .contact-card span {
       display: block;
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 10px;
+      color: rgba(255,255,255,0.62);
       font-weight: 800;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
     }
 
-    .phone-card a {
+    .contact-card a {
       display: block;
-      font-size: clamp(1.55rem, 3vw, 2.1rem);
       font-weight: 900;
-      letter-spacing: -0.055em;
-      margin-bottom: 14px;
-    }
-
-    .phone-card .text-btn {
-      display: inline-flex;
-      min-height: 44px;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--orange);
-      color: var(--ink);
-      font-size: 1rem;
+      font-size: 1.32rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
     }
 
     footer {
-      padding: 24px 0 36px;
+      padding: 24px 0 34px;
       color: var(--muted);
       font-size: 0.95rem;
     }
 
     .footer-row {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
       display: flex;
       justify-content: space-between;
       gap: 14px;
       flex-wrap: wrap;
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
     }
 
     @media (max-width: 950px) {
       .hero-grid,
-      .bento,
-      .rental-strip,
+      .cards,
+      .rent-strip,
       .contact-panel {
         grid-template-columns: 1fr;
       }
 
-      .hero-main,
-      .hero-side {
+      .hero-copy,
+      .hero-photo,
+      .hero-photo img {
         min-height: auto;
       }
 
-      .tile.big {
-        min-height: 330px;
+      .hero-photo img {
+        height: auto;
       }
 
-      .plain-grid {
+      .card.real-estate {
+        min-height: 360px;
+      }
+
+      .reasons {
         grid-template-columns: 1fr 1fr;
       }
 
-      .nav-links a:not(.mini-cta) {
-        display: none;
+      .section-head {
+        flex-direction: column;
+        align-items: start;
       }
 
-      .section-title {
-        align-items: start;
-        flex-direction: column;
+      .nav-links a:not(.call) {
+        display: none;
       }
     }
 
@@ -652,51 +572,43 @@
       }
 
       .hero {
-        padding-top: 42px;
+        padding-top: 24px;
       }
 
-      .hero-main,
-      .hero-side,
+      .hero-copy,
+      .hero-photo,
       .contact-panel {
-        border-radius: 32px;
+        border-radius: 30px;
       }
 
-      .tag-row {
-        margin-bottom: 22px;
-      }
-
-      .plain-grid {
+      .reasons {
         grid-template-columns: 1fr;
       }
 
-      .phone-card {
-        min-width: 0;
+      .rent-strip .btn,
+      .contact-card {
         width: 100%;
       }
 
-      .rental-strip .btn {
-        width: 100%;
+      .contact-card {
+        min-width: 0;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="blob one"></div>
-  <div class="blob two"></div>
-
   <header>
     <div class="wrap nav">
       <a class="brand" href="#">
-        <span class="mark" aria-hidden="true"></span>
+        <span class="brand-mark" aria-hidden="true"></span>
         Bradley Barnes
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#rentals">Rentals</a>
-        <a href="#business">Business</a>
-        <a class="mini-cta" href="tel:+14799707301">Call</a>
+        <a href="#contact" class="call">Call / Text</a>
       </nav>
     </div>
   </header>
@@ -704,184 +616,174 @@
   <main>
     <section class="hero">
       <div class="wrap hero-grid">
-        <div class="hero-main">
-          <div class="tag-row">
-            <span class="tag">Real estate</span>
-            <span class="tag">Development</span>
-            <span class="tag">Rentals</span>
-            <span class="tag">Business lunch</span>
+        <div class="hero-copy">
+          <div>
+            <div class="eyebrow">
+              <span class="pill">Real estate</span>
+              <span class="pill">Development</span>
+              <span class="pill">Rentals</span>
+              <span class="pill">Business</span>
+            </div>
+
+            <h1>Property work. Practical help.</h1>
           </div>
 
-          <h1>Useful property work.</h1>
+          <div class="intro">
+            <p>
+              I help with buying, selling, improving, renting, and managing property.
+              I also like talking through business ideas with people trying to build something useful.
+            </p>
 
-          <p class="hero-copy">
-            I help with buying, selling, improving, renting, and managing property.
-            Simple conversations. Practical next steps.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn dark" href="tel:+14799707301">Call 479-970-7301</a>
-            <a class="btn light" href="sms:+14799707301">Text me</a>
+            <div class="hero-actions">
+              <a class="btn dark" href="tel:+14799707301">Call 479-970-7301</a>
+              <a class="btn light" href="sms:+14799707301">Text me</a>
+              <a class="btn light" href="mailto:brad@bradleybarnes.net">Email Brad</a>
+            </div>
           </div>
         </div>
 
-        <aside class="hero-side">
-          <div class="side-top">
-            <div class="side-card">
-              <strong>Residential + commercial</strong>
-              <span>Buying, selling, and figuring out the deal.</span>
-            </div>
+        <div class="hero-photo">
+          <img
+            src="17C95BBB-43B8-436C-9E60-48D2CB834860.png"
+            alt="Bradley Barnes working at a desk with property plans"
+          />
 
-            <div class="side-card">
-              <strong>Old or underused property</strong>
-              <span>Land, buildings, rentals, and better uses.</span>
-            </div>
+          <div class="photo-badge">
+            <strong>Simple first step:</strong>
+            <span>Call or text. If it makes sense, we can get lunch and talk it through.</span>
           </div>
-
-          <div class="side-bottom">
-            <h2>No big speech.</h2>
-            <p>
-              If there is a property or business idea worth talking through,
-              call or text.
-            </p>
-          </div>
-        </aside>
+        </div>
       </div>
     </section>
 
     <section id="work">
       <div class="wrap">
-        <div class="section-title">
+        <div class="section-head">
           <h2>What I do</h2>
           <p>
-            Four simple lanes. If yours overlaps, reach out.
+            A few lanes that often overlap: real estate, development, rentals, and practical business conversations.
           </p>
         </div>
 
-        <div class="bento">
-          <article class="tile big">
+        <div class="cards">
+          <article class="card real-estate">
             <span class="num">01</span>
             <div>
-              <h3>Real estate agency</h3>
+              <h3>Residential & commercial real estate</h3>
               <p>
-                Residential and commercial real estate help — buying, selling,
-                evaluating, and moving toward a clean decision.
+                Buying, selling, evaluating, and helping people make a clean decision.
               </p>
             </div>
-            <span class="shape"></span>
           </article>
 
-          <article class="tile green">
+          <article class="card development">
             <span class="num">02</span>
             <div>
               <h3>Property development</h3>
               <p>
-                Land, rough buildings, and dilapidated properties turned into
-                something useful.
+                Land, rough buildings, and overlooked places turned into something useful.
               </p>
             </div>
-            <span class="shape"></span>
           </article>
 
-          <article class="tile white">
+          <article class="card rentals">
             <span class="num">03</span>
             <div>
-              <h3>Rentals + management</h3>
+              <h3>Rentals & management</h3>
               <p>
-                Rental property ownership, leasing, management, maintenance,
-                and practical tenant/property direction.
+                Rental ownership, leasing, management, maintenance, and tenant/property direction.
               </p>
             </div>
-            <span class="shape"></span>
           </article>
 
-          <article class="tile blue">
+          <article class="card business">
             <span class="num">04</span>
             <div>
               <h3>Business conversations</h3>
               <p>
-                Future entrepreneurs, early ideas, lunch meetings, and direct
-                feedback about what to do next.
+                If you are trying to start, buy, fix, or figure something out, I am open to lunch and a direct conversation.
               </p>
             </div>
-            <span class="shape"></span>
           </article>
 
-          <article class="tile white">
+          <article class="card simple">
             <span class="num">05</span>
             <div>
               <h3>Useful opportunities</h3>
               <p>
-                If something is overlooked, underused, or stuck, that is usually
-                where the conversation gets interesting.
+                The interesting stuff is usually underused, overlooked, or stuck.
               </p>
             </div>
-            <span class="shape"></span>
           </article>
         </div>
 
-        <div class="rental-strip" id="rentals">
+        <div class="rent-strip" id="rentals">
           <div>
-            <h2>Rentals live here.</h2>
+            <h2>Rentals are at Russellville.rent.</h2>
             <p>
-              For rental listings or property management information, use Russellville.rent.
+              Use that site for rental listings and property management information.
             </p>
           </div>
 
           <a class="btn" href="https://russellville.rent" target="_blank" rel="noopener">
-            Go to Russellville.rent
+            Visit Russellville.rent
           </a>
         </div>
       </div>
     </section>
 
-    <section id="business">
+    <section>
       <div class="wrap">
-        <div class="section-title">
-          <h2>Good reasons to call</h2>
+        <div class="section-head">
+          <h2>Good reasons to reach out</h2>
           <p>
-            Keep it simple. These are the common ones.
+            No big process. Just reach out if one of these fits.
           </p>
         </div>
 
-        <div class="plain-grid">
-          <div class="plain">
+        <div class="reasons">
+          <div class="reason">
             <h3>You want to buy or sell.</h3>
-            <p>House, land, commercial, investment, or something unusual.</p>
+            <p>House, land, commercial space, or investment property.</p>
           </div>
 
-          <div class="plain">
+          <div class="reason">
             <h3>You found a rough property.</h3>
             <p>Old building, vacant lot, neglected place, or possible project.</p>
           </div>
 
-          <div class="plain">
+          <div class="reason">
             <h3>You need rental help.</h3>
             <p>Management, leasing, maintenance direction, or tenant questions.</p>
           </div>
 
-          <div class="plain">
+          <div class="reason">
             <h3>You want to talk business.</h3>
-            <p>Lunch, a real conversation, and practical next steps.</p>
+            <p>Future entrepreneurs, early ideas, and practical next steps.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact">
       <div class="wrap">
         <div class="contact-panel">
           <div>
-            <h2>Call or text.</h2>
+            <h2>Call, text, or email.</h2>
             <p>
-              Best way to reach me. If it makes sense, we can get lunch and talk it through.
+              Best way to reach me is by phone. If email is easier, that works too.
             </p>
           </div>
 
-          <div class="phone-card">
-            <span>Best contact</span>
+          <div class="contact-card">
+            <span>Phone</span>
             <a href="tel:+14799707301">479-970-7301</a>
-            <a class="text-btn" href="sms:+14799707301">Send a text</a>
+
+            <span>Email</span>
+            <a href="mailto:brad@bradleybarnes.net">brad@bradleybarnes.net</a>
+
+            <span>Website</span>
+            <a href="https://bradleybarnes.net">BradleyBarnes.net</a>
           </div>
         </div>
       </div>
