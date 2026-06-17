@@ -8,19 +8,25 @@
 
   <meta
     name="description"
-    content="Bradley Barnes helps with residential and commercial real estate, property development, rentals, property management, and practical business conversations."
+    content="Bradley Barnes helps with real estate, property development, rentals, property management, and practical business conversations in Arkansas."
   />
 
   <style>
     :root {
-      --bg: #f4f1ea;
-      --ink: #171717;
-      --muted: #66615a;
-      --card: #ffffff;
-      --line: #dfd8ca;
-      --dark: #151812;
-      --accent: #9a6a32;
-      --accent-2: #c79b5b;
+      --ink: #171411;
+      --muted: #665f55;
+      --cream: #fff7e8;
+      --sand: #f3dfbd;
+      --orange: #ff8a3d;
+      --gold: #f7c948;
+      --green: #3f7d4c;
+      --blue: #246bfe;
+      --purple: #7b3ff2;
+      --red: #f04b3f;
+      --white: #ffffff;
+      --line: rgba(23, 20, 17, 0.12);
+      --shadow: 0 28px 80px rgba(44, 32, 18, 0.18);
+      --radius: 30px;
     }
 
     * {
@@ -35,8 +41,13 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
-      background: var(--bg);
-      line-height: 1.45;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255, 138, 61, 0.25), transparent 28%),
+        radial-gradient(circle at 90% 4%, rgba(36, 107, 254, 0.18), transparent 24%),
+        radial-gradient(circle at 80% 90%, rgba(63, 125, 76, 0.18), transparent 28%),
+        var(--cream);
+      line-height: 1.35;
+      overflow-x: hidden;
     }
 
     a {
@@ -45,371 +56,694 @@
     }
 
     .wrap {
-      width: min(1080px, calc(100% - 36px));
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
+    }
+
+    .blob {
+      position: fixed;
+      z-index: -1;
+      border-radius: 999px;
+      filter: blur(4px);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .blob.one {
+      width: 260px;
+      height: 260px;
+      background: var(--gold);
+      top: 90px;
+      right: -80px;
+    }
+
+    .blob.two {
+      width: 220px;
+      height: 220px;
+      background: rgba(123, 63, 242, 0.22);
+      bottom: 80px;
+      left: -90px;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(244, 241, 234, 0.88);
-      backdrop-filter: blur(14px);
+      z-index: 20;
+      background: rgba(255, 247, 232, 0.72);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      height: 68px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
     }
 
     .brand {
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      font-size: 1.18rem;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background:
+        linear-gradient(135deg, var(--orange), var(--gold));
+      box-shadow: 0 10px 24px rgba(255, 138, 61, 0.35);
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
-      color: var(--muted);
+      align-items: center;
+      gap: 10px;
       font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
     }
 
     .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.72);
       color: var(--ink);
     }
 
+    .mini-cta {
+      background: var(--ink);
+      color: var(--white) !important;
+      font-weight: 800;
+    }
+
+    main {
+      padding-bottom: 28px;
+    }
+
     .hero {
-      padding: 92px 0 70px;
+      padding: 74px 0 34px;
     }
 
-    .hero-inner {
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 42px;
-      align-items: end;
+      grid-template-columns: 1.16fr 0.84fr;
+      gap: 18px;
+      align-items: stretch;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      padding: 8px 12px;
+    .hero-main,
+    .hero-side,
+    .tile,
+    .contact-panel {
       border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+      border-radius: 44px;
+      padding: clamp(28px, 5vw, 54px);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.48)),
+        radial-gradient(circle at 88% 20%, rgba(255, 138, 61, 0.55), transparent 30%),
+        radial-gradient(circle at 8% 90%, rgba(63, 125, 76, 0.32), transparent 32%);
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 46% 54% 41% 59%;
+      right: -70px;
+      top: -60px;
+      background: var(--blue);
+      opacity: 0.12;
+      transform: rotate(18deg);
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 60% 40% 55% 45%;
+      left: -120px;
+      bottom: -130px;
+      background: var(--orange);
+      opacity: 0.18;
+      transform: rotate(-20deg);
+    }
+
+    .tag-row {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(23, 20, 17, 0.1);
       color: var(--muted);
-      font-size: 0.86rem;
-      margin-bottom: 18px;
+      font-weight: 800;
+      font-size: 0.82rem;
     }
 
     h1 {
+      position: relative;
+      z-index: 2;
       margin: 0;
-      max-width: 780px;
-      font-size: clamp(3.2rem, 9vw, 7rem);
-      line-height: 0.92;
-      letter-spacing: -0.085em;
+      max-width: 820px;
+      font-size: clamp(3.5rem, 11vw, 8.8rem);
+      line-height: 0.84;
+      letter-spacing: -0.105em;
     }
 
-    .hero p {
-      margin: 24px 0 0;
-      max-width: 620px;
-      font-size: clamp(1.08rem, 2vw, 1.35rem);
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      margin: 28px 0 0;
+      max-width: 610px;
+      font-size: clamp(1.12rem, 2vw, 1.42rem);
       color: var(--muted);
     }
 
-    .quick-card {
-      background: var(--dark);
-      color: white;
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: 0 24px 70px rgba(21, 24, 18, 0.18);
-    }
-
-    .quick-card p {
-      margin: 0 0 22px;
-      color: #ddd2c0;
-      font-size: 1rem;
-    }
-
-    .buttons {
+    .hero-actions {
+      position: relative;
+      z-index: 2;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 34px;
     }
 
     .btn {
       display: inline-flex;
-      justify-content: center;
       align-items: center;
-      min-height: 46px;
-      padding: 12px 16px;
+      justify-content: center;
+      gap: 8px;
+      min-height: 50px;
+      padding: 13px 18px;
       border-radius: 999px;
-      font-weight: 800;
-      border: 1px solid transparent;
+      font-weight: 900;
       transition: 0.18s ease;
+      border: 1px solid transparent;
     }
 
-    .btn.primary {
-      background: var(--accent-2);
-      color: #171717;
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
-    .btn.primary:hover {
-      transform: translateY(-1px);
-      background: #d7ac69;
+    .btn.dark {
+      background: var(--ink);
+      color: var(--white);
     }
 
-    .btn.secondary {
-      color: white;
-      border-color: rgba(255, 255, 255, 0.25);
+    .btn.light {
+      background: rgba(255, 255, 255, 0.72);
+      border-color: var(--line);
     }
 
-    .btn.secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
+    .hero-side {
+      min-height: 560px;
+      border-radius: 44px;
+      padding: 24px;
+      background:
+        linear-gradient(160deg, rgba(23, 20, 17, 0.96), rgba(44, 37, 29, 0.88)),
+        radial-gradient(circle at 20% 20%, rgba(247, 201, 72, 0.32), transparent 34%);
+      color: var(--white);
+      display: grid;
+      align-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-side::before {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 44% 56% 70% 30%;
+      right: -80px;
+      bottom: -80px;
+      background: var(--orange);
+      opacity: 0.45;
+    }
+
+    .side-top {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 12px;
+    }
+
+    .side-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .side-card strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 5px;
+    }
+
+    .side-card span {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .side-bottom {
+      position: relative;
+      z-index: 2;
+    }
+
+    .side-bottom h2 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4.4rem);
+      line-height: 0.9;
+      letter-spacing: -0.085em;
+    }
+
+    .side-bottom p {
+      color: rgba(255, 255, 255, 0.72);
+      margin: 16px 0 0;
+      max-width: 360px;
     }
 
     section {
-      padding: 42px 0;
+      padding: 34px 0;
     }
 
-    .section-head {
+    .section-title {
       display: flex;
       justify-content: space-between;
-      gap: 24px;
       align-items: end;
+      gap: 18px;
       margin-bottom: 18px;
     }
 
-    h2 {
+    .section-title h2 {
       margin: 0;
-      font-size: clamp(1.8rem, 4vw, 3.2rem);
-      line-height: 1;
-      letter-spacing: -0.06em;
+      font-size: clamp(2.4rem, 6vw, 5.6rem);
+      line-height: 0.86;
+      letter-spacing: -0.09em;
     }
 
-    .section-head p {
+    .section-title p {
       margin: 0;
       color: var(--muted);
-      max-width: 420px;
+      max-width: 390px;
+      font-size: 1.05rem;
     }
 
-    .grid {
+    .bento {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      gap: 14px;
+    }
+
+    .tile {
+      min-height: 250px;
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .tile h3 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      max-width: 360px;
+    }
+
+    .tile p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      max-width: 360px;
+    }
+
+    .tile .num {
+      font-weight: 900;
+      color: rgba(23, 20, 17, 0.34);
+    }
+
+    .tile.big {
+      grid-row: span 2;
+      min-height: 514px;
+      background:
+        linear-gradient(145deg, rgba(255, 138, 61, 0.9), rgba(247, 201, 72, 0.75)),
+        var(--orange);
+    }
+
+    .tile.big p {
+      color: rgba(23, 20, 17, 0.72);
+      font-weight: 700;
+    }
+
+    .tile.green {
+      background:
+        linear-gradient(135deg, rgba(63, 125, 76, 0.98), rgba(114, 162, 90, 0.82));
+      color: var(--white);
+    }
+
+    .tile.green p,
+    .tile.green .num {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .tile.blue {
+      background:
+        linear-gradient(135deg, rgba(36, 107, 254, 0.92), rgba(123, 63, 242, 0.78));
+      color: var(--white);
+    }
+
+    .tile.blue p,
+    .tile.blue .num {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .tile.white {
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .shape {
+      position: absolute;
+      right: -45px;
+      bottom: -45px;
+      width: 160px;
+      height: 160px;
+      border-radius: 38% 62% 53% 47%;
+      background: rgba(255, 255, 255, 0.24);
+      transform: rotate(18deg);
+    }
+
+    .rental-strip {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      border-radius: var(--radius);
+      padding: 28px;
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .rental-strip::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 999px;
+      right: -70px;
+      top: -90px;
+      background: var(--green);
+      opacity: 0.55;
+    }
+
+    .rental-strip div,
+    .rental-strip a {
+      position: relative;
+      z-index: 2;
+    }
+
+    .rental-strip h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+    }
+
+    .rental-strip p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .rental-strip .btn {
+      background: var(--white);
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .plain-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .plain {
+      border-top: 2px solid var(--ink);
+      padding-top: 16px;
     }
 
-    .card span {
-      color: var(--accent);
-      font-weight: 900;
-      font-size: 0.9rem;
-    }
-
-    .card h3 {
+    .plain h3 {
       margin: 0 0 8px;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
+      font-size: 1.1rem;
+      letter-spacing: -0.025em;
     }
 
-    .card p {
+    .plain p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.98rem;
     }
 
-    .wide {
-      margin-top: 14px;
+    .contact-panel {
+      border-radius: 44px;
+      padding: clamp(28px, 5vw, 48px);
       background:
-        linear-gradient(135deg, rgba(21, 24, 18, 0.92), rgba(21, 24, 18, 0.76)),
-        radial-gradient(circle at top right, var(--accent), transparent 38%);
-      color: white;
-      border-radius: 30px;
-      padding: 34px;
+        radial-gradient(circle at 90% 20%, rgba(240, 75, 63, 0.32), transparent 26%),
+        radial-gradient(circle at 20% 90%, rgba(36, 107, 254, 0.18), transparent 30%),
+        rgba(255, 255, 255, 0.78);
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 24px;
       align-items: center;
     }
 
-    .wide h2 {
-      max-width: 620px;
-    }
-
-    .wide p {
-      margin: 14px 0 0;
-      color: #dfd6c7;
-      max-width: 620px;
-    }
-
-    .wide .btn {
-      background: white;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-
-    .simple-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .list-item {
-      background: transparent;
-      border-top: 1px solid var(--line);
-      padding: 18px 0 8px;
-    }
-
-    .list-item h3 {
-      margin: 0 0 6px;
-      font-size: 1.05rem;
-    }
-
-    .list-item p {
+    .contact-panel h2 {
       margin: 0;
-      color: var(--muted);
+      font-size: clamp(2.8rem, 8vw, 7rem);
+      line-height: 0.82;
+      letter-spacing: -0.095em;
     }
 
-    .contact {
-      padding: 52px 0 74px;
-    }
-
-    .contact-box {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .contact-box p {
-      margin: 10px 0 0;
+    .contact-panel p {
+      margin: 16px 0 0;
       color: var(--muted);
       max-width: 520px;
+      font-size: 1.1rem;
     }
 
-    .phone {
-      font-size: clamp(1.3rem, 3vw, 2rem);
+    .phone-card {
+      background: var(--ink);
+      color: var(--white);
+      padding: 24px;
+      border-radius: 28px;
+      min-width: 260px;
+      box-shadow: 0 22px 60px rgba(23, 20, 17, 0.22);
+    }
+
+    .phone-card span {
+      display: block;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .phone-card a {
+      display: block;
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
       font-weight: 900;
-      letter-spacing: -0.04em;
-      color: var(--accent);
-      white-space: nowrap;
+      letter-spacing: -0.055em;
+      margin-bottom: 14px;
+    }
+
+    .phone-card .text-btn {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: var(--ink);
+      font-size: 1rem;
     }
 
     footer {
-      border-top: 1px solid var(--line);
+      padding: 24px 0 36px;
       color: var(--muted);
-      padding: 24px 0;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .footer-row {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
     }
 
-    @media (max-width: 900px) {
-      .hero-inner,
-      .wide,
-      .contact-box {
+    @media (max-width: 950px) {
+      .hero-grid,
+      .bento,
+      .rental-strip,
+      .contact-panel {
         grid-template-columns: 1fr;
       }
 
-      .grid {
+      .hero-main,
+      .hero-side {
+        min-height: auto;
+      }
+
+      .tile.big {
+        min-height: 330px;
+      }
+
+      .plain-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .nav-links {
+      .nav-links a:not(.mini-cta) {
         display: none;
       }
 
-      .hero {
-        padding: 64px 0 44px;
-      }
-
-      .quick-card {
-        border-radius: 24px;
-      }
-
-      .phone {
-        white-space: normal;
+      .section-title {
+        align-items: start;
+        flex-direction: column;
       }
     }
 
     @media (max-width: 560px) {
-      .grid,
-      .simple-list {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .contact-panel {
+        border-radius: 32px;
+      }
+
+      .tag-row {
+        margin-bottom: 22px;
+      }
+
+      .plain-grid {
         grid-template-columns: 1fr;
       }
 
-      .wrap {
-        width: min(100% - 28px, 1080px);
+      .phone-card {
+        min-width: 0;
+        width: 100%;
       }
 
-      .card {
-        min-height: 170px;
-      }
-
-      .wide,
-      .contact-box {
-        padding: 24px;
+      .rental-strip .btn {
+        width: 100%;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#">Bradley Barnes</a>
+      <a class="brand" href="#">
+        <span class="mark" aria-hidden="true"></span>
+        Bradley Barnes
+      </a>
 
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#rentals">Rentals</a>
         <a href="#business">Business</a>
-        <a href="#contact">Contact</a>
+        <a class="mini-cta" href="tel:+14799707301">Call</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="wrap hero-inner">
-        <div>
-          <div class="eyebrow">Arkansas real estate, development, and rentals</div>
-          <h1>Property work. Practical business.</h1>
-          <p>
-            I help buy, sell, improve, rent, and manage property — residential,
-            commercial, and anything with useful potential.
+      <div class="wrap hero-grid">
+        <div class="hero-main">
+          <div class="tag-row">
+            <span class="tag">Real estate</span>
+            <span class="tag">Development</span>
+            <span class="tag">Rentals</span>
+            <span class="tag">Business lunch</span>
+          </div>
+
+          <h1>Useful property work.</h1>
+
+          <p class="hero-copy">
+            I help with buying, selling, improving, renting, and managing property.
+            Simple conversations. Practical next steps.
           </p>
+
+          <div class="hero-actions">
+            <a class="btn dark" href="tel:+14799707301">Call 479-970-7301</a>
+            <a class="btn light" href="sms:+14799707301">Text me</a>
+          </div>
         </div>
 
-        <aside class="quick-card">
-          <p>
-            Have a property, deal, rental, or business idea worth talking about?
-          </p>
+        <aside class="hero-side">
+          <div class="side-top">
+            <div class="side-card">
+              <strong>Residential + commercial</strong>
+              <span>Buying, selling, and figuring out the deal.</span>
+            </div>
 
-          <div class="buttons">
-            <a class="btn primary" href="tel:+14799707301">Call</a>
-            <a class="btn secondary" href="sms:+14799707301">Text 479-970-7301</a>
+            <div class="side-card">
+              <strong>Old or underused property</strong>
+              <span>Land, buildings, rentals, and better uses.</span>
+            </div>
+          </div>
+
+          <div class="side-bottom">
+            <h2>No big speech.</h2>
+            <p>
+              If there is a property or business idea worth talking through,
+              call or text.
+            </p>
           </div>
         </aside>
       </div>
@@ -417,53 +751,85 @@
 
     <section id="work">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-title">
           <h2>What I do</h2>
-          <p>No fluff. Just the main lanes.</p>
+          <p>
+            Four simple lanes. If yours overlaps, reach out.
+          </p>
         </div>
 
-        <div class="grid">
-          <article class="card">
-            <span>01</span>
+        <div class="bento">
+          <article class="tile big">
+            <span class="num">01</span>
             <div>
-              <h3>Real Estate</h3>
-              <p>Residential and commercial buying, selling, and deal help.</p>
+              <h3>Real estate agency</h3>
+              <p>
+                Residential and commercial real estate help — buying, selling,
+                evaluating, and moving toward a clean decision.
+              </p>
             </div>
+            <span class="shape"></span>
           </article>
 
-          <article class="card">
-            <span>02</span>
+          <article class="tile green">
+            <span class="num">02</span>
             <div>
-              <h3>Development</h3>
-              <p>Land, old buildings, and rough properties turned into something useful.</p>
+              <h3>Property development</h3>
+              <p>
+                Land, rough buildings, and dilapidated properties turned into
+                something useful.
+              </p>
             </div>
+            <span class="shape"></span>
           </article>
 
-          <article class="card">
-            <span>03</span>
+          <article class="tile white">
+            <span class="num">03</span>
             <div>
-              <h3>Rentals</h3>
-              <p>Rental ownership, leasing, and day-to-day property management.</p>
+              <h3>Rentals + management</h3>
+              <p>
+                Rental property ownership, leasing, management, maintenance,
+                and practical tenant/property direction.
+              </p>
             </div>
+            <span class="shape"></span>
           </article>
 
-          <article class="card">
-            <span>04</span>
+          <article class="tile blue">
+            <span class="num">04</span>
             <div>
-              <h3>Business</h3>
-              <p>Lunch, a direct conversation, and practical next steps.</p>
+              <h3>Business conversations</h3>
+              <p>
+                Future entrepreneurs, early ideas, lunch meetings, and direct
+                feedback about what to do next.
+              </p>
             </div>
+            <span class="shape"></span>
+          </article>
+
+          <article class="tile white">
+            <span class="num">05</span>
+            <div>
+              <h3>Useful opportunities</h3>
+              <p>
+                If something is overlooked, underused, or stuck, that is usually
+                where the conversation gets interesting.
+              </p>
+            </div>
+            <span class="shape"></span>
           </article>
         </div>
 
-        <div class="wide" id="rentals">
+        <div class="rental-strip" id="rentals">
           <div>
-            <h2>Looking for rentals or property management?</h2>
-            <p>Use Russellville.rent for rental-related information.</p>
+            <h2>Rentals live here.</h2>
+            <p>
+              For rental listings or property management information, use Russellville.rent.
+            </p>
           </div>
 
           <a class="btn" href="https://russellville.rent" target="_blank" rel="noopener">
-            Visit Russellville.rent
+            Go to Russellville.rent
           </a>
         </div>
       </div>
@@ -471,44 +837,52 @@
 
     <section id="business">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Good fit</h2>
-          <p>Reasons to reach out.</p>
+        <div class="section-title">
+          <h2>Good reasons to call</h2>
+          <p>
+            Keep it simple. These are the common ones.
+          </p>
         </div>
 
-        <div class="simple-list">
-          <div class="list-item">
-            <h3>You want to buy or sell property.</h3>
-            <p>Residential, commercial, land, or investment property.</p>
+        <div class="plain-grid">
+          <div class="plain">
+            <h3>You want to buy or sell.</h3>
+            <p>House, land, commercial, investment, or something unusual.</p>
           </div>
 
-          <div class="list-item">
-            <h3>You have a property with potential.</h3>
-            <p>Vacant land, neglected buildings, or something underused.</p>
+          <div class="plain">
+            <h3>You found a rough property.</h3>
+            <p>Old building, vacant lot, neglected place, or possible project.</p>
           </div>
 
-          <div class="list-item">
+          <div class="plain">
             <h3>You need rental help.</h3>
-            <p>Rentals, management, maintenance direction, or leasing questions.</p>
+            <p>Management, leasing, maintenance direction, or tenant questions.</p>
           </div>
 
-          <div class="list-item">
+          <div class="plain">
             <h3>You want to talk business.</h3>
-            <p>Future entrepreneurs, early ideas, and practical strategy.</p>
+            <p>Lunch, a real conversation, and practical next steps.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact">
       <div class="wrap">
-        <div class="contact-box">
+        <div class="contact-panel">
           <div>
             <h2>Call or text.</h2>
-            <p>Best way to reach me. If it makes sense, we can get lunch and talk through it.</p>
+            <p>
+              Best way to reach me. If it makes sense, we can get lunch and talk it through.
+            </p>
           </div>
 
-          <a class="phone" href="tel:+14799707301">479-970-7301</a>
+          <div class="phone-card">
+            <span>Best contact</span>
+            <a href="tel:+14799707301">479-970-7301</a>
+            <a class="text-btn" href="sms:+14799707301">Send a text</a>
+          </div>
         </div>
       </div>
     </section>
