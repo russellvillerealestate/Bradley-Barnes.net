@@ -4,27 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Bradley Barnes | Real Estate, Development & Property Management</title>
+  <title>Bradley Barnes | Real Estate, Development, Rentals</title>
 
   <meta
     name="description"
-    content="Bradley Barnes works across residential and commercial real estate, property development, rentals, property management, and business conversations for future entrepreneurs."
+    content="Bradley Barnes helps with residential and commercial real estate, property development, rentals, property management, and practical business conversations."
   />
 
   <style>
     :root {
-      --bg: #f7f3ec;
-      --paper: #ffffff;
-      --ink: #1e1e1c;
-      --muted: #68645c;
-      --line: #ddd4c6;
-      --accent: #9b6b32;
-      --accent-dark: #6f471f;
-      --dark: #1f241f;
+      --bg: #f4f1ea;
+      --ink: #171717;
+      --muted: #66615a;
+      --card: #ffffff;
+      --line: #dfd8ca;
+      --dark: #151812;
+      --accent: #9a6a32;
+      --accent-2: #c79b5b;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -32,7 +36,7 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
       background: var(--bg);
-      line-height: 1.6;
+      line-height: 1.45;
     }
 
     a {
@@ -40,230 +44,238 @@
       text-decoration: none;
     }
 
-    .container {
-      width: min(1120px, calc(100% - 40px));
+    .wrap {
+      width: min(1080px, calc(100% - 36px));
       margin: 0 auto;
     }
 
     header {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 10;
+      background: rgba(244, 241, 234, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
+      height: 68px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      justify-content: space-between;
       gap: 20px;
     }
 
     .brand {
       font-weight: 800;
-      letter-spacing: 0.02em;
-      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      font-size: 1.1rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
-      font-size: 0.95rem;
+      gap: 20px;
       color: var(--muted);
+      font-size: 0.95rem;
     }
 
     .nav-links a:hover {
-      color: var(--accent-dark);
+      color: var(--ink);
     }
 
     .hero {
-      padding: 88px 0 72px;
-      background:
-        linear-gradient(rgba(31, 36, 31, 0.75), rgba(31, 36, 31, 0.8)),
-        radial-gradient(circle at top left, #6f471f, #1f241f);
-      color: white;
+      padding: 92px 0 70px;
     }
 
-    .hero-grid {
+    .hero-inner {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 48px;
-      align-items: center;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 42px;
+      align-items: end;
     }
 
     .eyebrow {
-      color: #dfc39b;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.78rem;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      line-height: 1.02;
-      margin: 0 0 22px;
-      letter-spacing: -0.05em;
-    }
-
-    .hero p {
-      font-size: 1.13rem;
-      max-width: 660px;
-      color: #eee7dd;
-      margin: 0 0 30px;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-    }
-
-    .btn-secondary {
-      border-color: rgba(255, 255, 255, 0.45);
-      color: white;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 22px;
-      padding: 26px;
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-card strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .hero-card p {
-      font-size: 0.98rem;
-      margin: 0;
-      color: #e8ded0;
-    }
-
-    section {
-      padding: 72px 0;
-    }
-
-    .section-title {
-      max-width: 720px;
-      margin-bottom: 34px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      line-height: 1.08;
-      margin: 0 0 12px;
-      letter-spacing: -0.04em;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      margin: 0;
-      font-size: 1.05rem;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--paper);
+      display: inline-flex;
+      padding: 8px 12px;
       border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 26px;
-      min-height: 260px;
-      box-shadow: 0 14px 40px rgba(31, 36, 31, 0.05);
-    }
-
-    .card .number {
-      color: var(--accent);
-      font-weight: 800;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--muted);
+      font-size: 0.86rem;
       margin-bottom: 18px;
     }
 
+    h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(3.2rem, 9vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.085em;
+    }
+
+    .hero p {
+      margin: 24px 0 0;
+      max-width: 620px;
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      color: var(--muted);
+    }
+
+    .quick-card {
+      background: var(--dark);
+      color: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 24px 70px rgba(21, 24, 18, 0.18);
+    }
+
+    .quick-card p {
+      margin: 0 0 22px;
+      color: #ddd2c0;
+      font-size: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: 0.18s ease;
+    }
+
+    .btn.primary {
+      background: var(--accent-2);
+      color: #171717;
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-1px);
+      background: #d7ac69;
+    }
+
+    .btn.secondary {
+      color: white;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card span {
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
     .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.28rem;
-      line-height: 1.2;
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
     }
 
     .card p {
       margin: 0;
       color: var(--muted);
+      font-size: 0.98rem;
     }
 
-    .split {
+    .wide {
+      margin-top: 14px;
+      background:
+        linear-gradient(135deg, rgba(21, 24, 18, 0.92), rgba(21, 24, 18, 0.76)),
+        radial-gradient(circle at top right, var(--accent), transparent 38%);
+      color: white;
+      border-radius: 30px;
+      padding: 34px;
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 38px;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
       align-items: center;
     }
 
-    .panel {
-      background: var(--dark);
-      color: white;
-      border-radius: 24px;
-      padding: 38px;
+    .wide h2 {
+      max-width: 620px;
     }
 
-    .panel h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      margin: 0 0 16px;
+    .wide p {
+      margin: 14px 0 0;
+      color: #dfd6c7;
+      max-width: 620px;
     }
 
-    .panel p {
-      color: #e8ded0;
-      margin: 0 0 24px;
+    .wide .btn {
+      background: white;
+      color: var(--ink);
+      white-space: nowrap;
     }
 
-    .list {
+    .simple-list {
       display: grid;
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
 
     .list-item {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 22px;
+      background: transparent;
+      border-top: 1px solid var(--line);
+      padding: 18px 0 8px;
     }
 
     .list-item h3 {
       margin: 0 0 6px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     .list-item p {
@@ -272,83 +284,93 @@
     }
 
     .contact {
-      background: var(--paper);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      padding: 52px 0 74px;
     }
 
     .contact-box {
-      background: var(--bg);
+      background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 38px;
+      border-radius: 30px;
+      padding: 32px;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 24px;
+      gap: 20px;
       align-items: center;
     }
 
-    .contact-box h2 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.04em;
-      line-height: 1.08;
-    }
-
     .contact-box p {
-      margin: 0;
+      margin: 10px 0 0;
       color: var(--muted);
+      max-width: 520px;
     }
 
     .phone {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--accent);
       white-space: nowrap;
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--accent-dark);
     }
 
     footer {
-      padding: 28px 0;
+      border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.92rem;
+      padding: 24px 0;
+      font-size: 0.9rem;
     }
 
     .footer-row {
       display: flex;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
-    @media (max-width: 850px) {
-      .nav {
-        align-items: flex-start;
+    @media (max-width: 900px) {
+      .hero-inner,
+      .wide,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
       }
 
       .nav-links {
         display: none;
       }
 
-      .hero-grid,
-      .split,
-      .contact-box {
-        grid-template-columns: 1fr;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
       .hero {
-        padding: 62px 0;
+        padding: 64px 0 44px;
       }
 
-      section {
-        padding: 54px 0;
+      .quick-card {
+        border-radius: 24px;
       }
 
       .phone {
         white-space: normal;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .grid,
+      .simple-list {
+        grid-template-columns: 1fr;
+      }
+
+      .wrap {
+        width: min(100% - 28px, 1080px);
+      }
+
+      .card {
+        min-height: 170px;
+      }
+
+      .wide,
+      .contact-box {
+        padding: 24px;
       }
     }
   </style>
@@ -356,13 +378,13 @@
 
 <body>
   <header>
-    <div class="container nav">
+    <div class="wrap nav">
       <a class="brand" href="#">Bradley Barnes</a>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#real-estate">Real Estate</a>
-        <a href="#development">Development</a>
+        <a href="#work">Work</a>
         <a href="#rentals">Rentals</a>
+        <a href="#business">Business</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -370,167 +392,120 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="wrap hero-inner">
         <div>
-          <div class="eyebrow">Real Estate • Development • Property Management</div>
-          <h1>Practical property work with long-term value.</h1>
+          <div class="eyebrow">Arkansas real estate, development, and rentals</div>
+          <h1>Property work. Practical business.</h1>
           <p>
-            I work across residential and commercial real estate, property development,
-            rentals, and property management. I also meet with future entrepreneurs who
-            want to talk through business ideas, next steps, and real-world execution.
+            I help buy, sell, improve, rent, and manage property — residential,
+            commercial, and anything with useful potential.
           </p>
-
-          <div class="button-row">
-            <a class="btn btn-primary" href="tel:+14799707301">Call Bradley</a>
-            <a class="btn btn-secondary" href="sms:+14799707301">Text 479-970-7301</a>
-          </div>
         </div>
 
-        <aside class="hero-card">
-          <strong>Based around real property and useful business.</strong>
+        <aside class="quick-card">
           <p>
-            Buying, selling, improving, managing, and building better uses for land,
-            homes, commercial spaces, and overlooked properties.
+            Have a property, deal, rental, or business idea worth talking about?
           </p>
+
+          <div class="buttons">
+            <a class="btn primary" href="tel:+14799707301">Call</a>
+            <a class="btn secondary" href="sms:+14799707301">Text 479-970-7301</a>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section id="real-estate">
-      <div class="container">
-        <div class="section-title">
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
           <h2>What I do</h2>
-          <p>
-            My work is centered on property, but not limited to one lane.
-          </p>
+          <p>No fluff. Just the main lanes.</p>
         </div>
 
-        <div class="cards">
+        <div class="grid">
           <article class="card">
-            <div class="number">01</div>
-            <h3>Residential & Commercial Real Estate</h3>
-            <p>
-              I work as a real estate agent helping clients with residential and
-              commercial property needs, including buying, selling, and evaluating
-              opportunities.
-            </p>
+            <span>01</span>
+            <div>
+              <h3>Real Estate</h3>
+              <p>Residential and commercial buying, selling, and deal help.</p>
+            </div>
           </article>
 
           <article class="card">
-            <div class="number">02</div>
-            <h3>Property Development</h3>
-            <p>
-              I look for land, older buildings, and dilapidated properties that can be
-              turned into something new, useful, and valuable for businesses or people.
-            </p>
+            <span>02</span>
+            <div>
+              <h3>Development</h3>
+              <p>Land, old buildings, and rough properties turned into something useful.</p>
+            </div>
           </article>
 
           <article class="card">
-            <div class="number">03</div>
-            <h3>Rentals & Property Management</h3>
-            <p>
-              I own rental properties and handle property management with a practical
-              focus on housing, maintenance, and long-term property performance.
-            </p>
+            <span>03</span>
+            <div>
+              <h3>Rentals</h3>
+              <p>Rental ownership, leasing, and day-to-day property management.</p>
+            </div>
           </article>
+
+          <article class="card">
+            <span>04</span>
+            <div>
+              <h3>Business</h3>
+              <p>Lunch, a direct conversation, and practical next steps.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="wide" id="rentals">
+          <div>
+            <h2>Looking for rentals or property management?</h2>
+            <p>Use Russellville.rent for rental-related information.</p>
+          </div>
+
+          <a class="btn" href="https://russellville.rent" target="_blank" rel="noopener">
+            Visit Russellville.rent
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="development">
-      <div class="container split">
-        <div class="panel">
-          <h2>Development that makes property useful again.</h2>
-          <p>
-            Good development is not just about building something. It is about seeing
-            what a property can become, whether that means improving land, restoring a
-            neglected structure, or creating space for people and businesses to use.
-          </p>
-
-          <a class="btn btn-primary" href="tel:+14799707301">Talk about a property</a>
+    <section id="business">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Good fit</h2>
+          <p>Reasons to reach out.</p>
         </div>
 
-        <div class="list">
+        <div class="simple-list">
           <div class="list-item">
-            <h3>Land Opportunities</h3>
-            <p>
-              Evaluating land for future use, improvement, development, or resale.
-            </p>
+            <h3>You want to buy or sell property.</h3>
+            <p>Residential, commercial, land, or investment property.</p>
           </div>
 
           <div class="list-item">
-            <h3>Dilapidated Properties</h3>
-            <p>
-              Looking at neglected homes, buildings, and lots with potential to be
-              repaired, repositioned, or redeveloped.
-            </p>
+            <h3>You have a property with potential.</h3>
+            <p>Vacant land, neglected buildings, or something underused.</p>
           </div>
 
           <div class="list-item">
-            <h3>Commercial Use</h3>
-            <p>
-              Thinking through how property can better serve local businesses,
-              tenants, customers, and neighborhoods.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="rentals">
-      <div class="container">
-        <div class="section-title">
-          <h2>Rentals and property management</h2>
-          <p>
-            For rental information and property management, visit Russellville.rent.
-          </p>
-        </div>
-
-        <a class="btn btn-primary" href="https://russellville.rent" target="_blank" rel="noopener">
-          Visit Russellville.rent
-        </a>
-      </div>
-    </section>
-
-    <section>
-      <div class="container split">
-        <div>
-          <div class="section-title">
-            <h2>Business conversations</h2>
-            <p>
-              I also like meeting with future entrepreneurs and business-minded people.
-              Sometimes lunch and a direct conversation can help clarify the next move.
-            </p>
-          </div>
-        </div>
-
-        <div class="list">
-          <div class="list-item">
-            <h3>For future entrepreneurs</h3>
-            <p>
-              If you are thinking about starting something, buying something, fixing
-              something, or figuring out your first step, reach out.
-            </p>
+            <h3>You need rental help.</h3>
+            <p>Rentals, management, maintenance direction, or leasing questions.</p>
           </div>
 
           <div class="list-item">
-            <h3>Simple next step</h3>
-            <p>
-              Call or text me. If it makes sense, we can get lunch and talk through it.
-            </p>
+            <h3>You want to talk business.</h3>
+            <p>Future entrepreneurs, early ideas, and practical strategy.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="contact" class="contact">
-      <div class="container">
+      <div class="wrap">
         <div class="contact-box">
           <div>
-            <h2>Reach out directly.</h2>
-            <p>
-              The best way to reach me is by phone. Call or text and I will respond when available.
-            </p>
+            <h2>Call or text.</h2>
+            <p>Best way to reach me. If it makes sense, we can get lunch and talk through it.</p>
           </div>
 
           <a class="phone" href="tel:+14799707301">479-970-7301</a>
@@ -540,8 +515,8 @@
   </main>
 
   <footer>
-    <div class="container footer-row">
-      <span>© <span id="year"></span> Bradley Barnes. All rights reserved.</span>
+    <div class="wrap footer-row">
+      <span>© <span id="year"></span> Bradley Barnes</span>
       <span>BradleyBarnes.net</span>
     </div>
   </footer>
