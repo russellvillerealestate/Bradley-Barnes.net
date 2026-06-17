@@ -14,8 +14,9 @@
   <style>
     :root {
       --navy: #102433;
-      --navy-soft: rgba(16, 36, 51, 0.86);
+      --navy-soft: rgba(16, 36, 51, 0.9);
       --cream: #fff7e9;
+      --cream-soft: rgba(255, 247, 233, 0.86);
       --sand: #f4dfbb;
       --rust: #b45f34;
       --gold: #e3ad4f;
@@ -24,7 +25,7 @@
       --muted: #6c6459;
       --white: #ffffff;
       --line: rgba(31, 28, 24, 0.14);
-      --shadow: 0 24px 70px rgba(16, 36, 51, 0.18);
+      --shadow: 0 22px 60px rgba(16, 36, 51, 0.2);
     }
 
     * {
@@ -54,23 +55,21 @@
     }
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 50;
-      background: rgba(16, 36, 51, 0.72);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(16, 36, 51, 0.86);
+      backdrop-filter: blur(14px);
       color: white;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     }
 
     .nav {
-      height: 68px;
+      height: 66px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
     }
 
     .brand {
@@ -79,103 +78,76 @@
       gap: 10px;
       font-weight: 900;
       letter-spacing: -0.04em;
-      font-size: 1.12rem;
+      font-size: 1.08rem;
     }
 
     .brand-mark {
       width: 32px;
       height: 32px;
-      border-radius: 12px;
+      border-radius: 11px;
       background: linear-gradient(135deg, var(--rust), var(--gold));
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.94rem;
-      font-weight: 800;
-    }
-
-    .nav-links a {
-      padding: 10px 12px;
-      border-radius: 999px;
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: white;
-    }
-
-    .nav-links .call {
+    .nav a.call {
       background: white;
       color: var(--navy);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
     }
 
     .hero {
-      min-height: 100svh;
-      display: grid;
-      align-items: stretch;
+      padding: 18px 0 46px;
       background:
-        linear-gradient(
-          90deg,
-          rgba(16, 36, 51, 0.10) 0%,
-          rgba(16, 36, 51, 0.12) 32%,
-          rgba(255, 247, 233, 0.62) 56%,
-          rgba(255, 247, 233, 0.96) 100%
-        ),
-        url("17C95BBB-43B8-436C-9E60-48D2CB834860.png");
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      overflow: hidden;
+        radial-gradient(circle at 12% 0%, rgba(227, 173, 79, 0.26), transparent 30%),
+        radial-gradient(circle at 95% 18%, rgba(95, 127, 85, 0.18), transparent 28%),
+        var(--cream);
     }
 
-    .hero::before {
+    .hero-card {
+      position: relative;
+      min-height: 690px;
+      border-radius: 42px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background: var(--navy);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 690px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-card::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 16% 20%, rgba(16, 36, 51, 0.06), transparent 28%),
-        linear-gradient(180deg, rgba(16, 36, 51, 0.14), rgba(16, 36, 51, 0.04));
+        linear-gradient(90deg, rgba(16,36,51,0.05) 0%, rgba(16,36,51,0.05) 38%, rgba(255,247,233,0.68) 58%, rgba(255,247,233,0.96) 100%);
       pointer-events: none;
     }
 
-    .hero-content {
-      position: relative;
+    .hero-copy {
+      position: absolute;
       z-index: 2;
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 118px 0 52px;
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .hero-spacer {
-      min-height: 420px;
-    }
-
-    .card-copy {
-      margin-left: auto;
-      width: min(620px, 100%);
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      width: min(540px, 46%);
       text-align: center;
       color: var(--navy);
-      padding: clamp(24px, 4vw, 44px);
-      border-radius: 42px;
-      background: rgba(255, 247, 233, 0.72);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.54);
-      box-shadow: var(--shadow);
     }
 
     h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.7rem, 8vw, 7.6rem);
-      line-height: 0.86;
+      font-size: clamp(3.7rem, 7vw, 7.2rem);
+      line-height: 0.84;
       letter-spacing: -0.075em;
       font-weight: 700;
     }
@@ -185,7 +157,7 @@
       height: 7px;
       border-radius: 999px;
       background: var(--gold);
-      margin: 24px auto 24px;
+      margin: 24px auto;
     }
 
     .services {
@@ -193,7 +165,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px 15px;
-      font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+      font-size: clamp(1.05rem, 2vw, 1.45rem);
       font-weight: 900;
       letter-spacing: -0.025em;
     }
@@ -203,31 +175,31 @@
     }
 
     .tagline {
-      margin: 26px auto 0;
-      max-width: 520px;
-      font-size: clamp(1.05rem, 2vw, 1.36rem);
+      margin: 24px auto 0;
+      max-width: 470px;
+      font-size: clamp(1rem, 1.7vw, 1.22rem);
       font-style: italic;
       color: rgba(31, 28, 24, 0.82);
     }
 
     .contact-band {
-      margin-top: 34px;
+      margin: 28px auto 0;
       background: var(--navy-soft);
       color: white;
-      border-radius: 32px;
-      padding: 24px;
+      border-radius: 28px;
+      padding: 20px;
       text-align: left;
       display: grid;
-      gap: 16px;
-      box-shadow: 0 18px 45px rgba(16, 36, 51, 0.22);
+      gap: 14px;
+      box-shadow: 0 16px 45px rgba(16, 36, 51, 0.24);
     }
 
     .contact-row {
       display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 14px;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
       align-items: center;
-      padding-bottom: 16px;
+      padding-bottom: 14px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     }
 
@@ -237,34 +209,34 @@
     }
 
     .icon {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 999px;
       background: var(--gold);
       color: var(--navy);
       display: grid;
       place-items: center;
       font-weight: 900;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
     .label {
       display: block;
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.94rem;
-      margin-bottom: 2px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      margin-bottom: 1px;
     }
 
     .contact-row a {
       display: block;
-      font-size: clamp(1.1rem, 2.2vw, 1.65rem);
+      font-size: clamp(1rem, 1.8vw, 1.34rem);
       font-weight: 900;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.035em;
       word-break: break-word;
     }
 
     section {
-      padding: 72px 0;
+      padding: 64px 0;
     }
 
     .section-head {
@@ -305,7 +277,6 @@
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
-      position: relative;
     }
 
     .card h3 {
@@ -340,7 +311,7 @@
 
     .card.real-estate p,
     .card.real-estate .num {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.82);
     }
 
     .card.development {
@@ -350,7 +321,7 @@
 
     .card.development p,
     .card.development .num {
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.84);
     }
 
     .card.rentals {
@@ -368,7 +339,7 @@
     }
 
     .card.business {
-      background: #ffffff;
+      background: white;
     }
 
     .card.simple {
@@ -457,36 +428,78 @@
     }
 
     @media (max-width: 950px) {
-      header {
-        position: sticky;
-      }
-
       .hero {
+        padding: 12px 0 30px;
+      }
+
+      .hero-card {
         min-height: auto;
+        border-radius: 30px;
+        background: var(--cream);
+      }
+
+      .hero-card img {
+        min-height: 0;
+        height: 430px;
+        object-fit: cover;
+        object-position: 28% center;
+      }
+
+      .hero-card::after {
         background:
-          linear-gradient(
-            180deg,
-            rgba(16, 36, 51, 0.06) 0%,
-            rgba(255, 247, 233, 0.2) 44%,
-            rgba(255, 247, 233, 0.98) 100%
-          ),
-          url("17C95BBB-43B8-436C-9E60-48D2CB834860.png");
-        background-size: cover;
-        background-position: top center;
+          linear-gradient(180deg, rgba(16,36,51,0.02) 0%, rgba(255,247,233,0.05) 42%, rgba(255,247,233,0.95) 100%);
       }
 
-      .hero-content {
-        grid-template-columns: 1fr;
-        padding: 460px 0 32px;
+      .hero-copy {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: auto;
+        margin: -56px 14px 14px;
+        padding: 24px 18px;
+        border-radius: 28px;
+        background: var(--cream-soft);
+        backdrop-filter: blur(12px);
+        box-shadow: var(--shadow);
       }
 
-      .hero-spacer {
+      h1 {
+        font-size: clamp(3.4rem, 15vw, 5.4rem);
+      }
+
+      .services {
+        display: grid;
+        gap: 3px;
+        font-size: 1.15rem;
+      }
+
+      .dot {
         display: none;
       }
 
-      .card-copy {
-        width: 100%;
-        margin: 0;
+      .tagline {
+        margin-top: 18px;
+        font-size: 1rem;
+      }
+
+      .contact-band {
+        margin-top: 20px;
+        padding: 16px;
+        border-radius: 22px;
+      }
+
+      .contact-row {
+        grid-template-columns: 38px 1fr;
+      }
+
+      .icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .contact-row a {
+        font-size: 1rem;
       }
 
       .cards,
@@ -506,39 +519,36 @@
         flex-direction: column;
         align-items: start;
       }
-
-      .nav-links a:not(.call) {
-        display: none;
-      }
     }
 
     @media (max-width: 560px) {
-      .wrap,
-      .hero-content {
+      .wrap {
         width: min(100% - 24px, 1120px);
       }
 
-      .hero-content {
-        padding-top: 390px;
+      .nav {
+        height: 62px;
       }
 
-      .card-copy {
-        border-radius: 30px;
-        padding: 24px;
+      .brand {
+        font-size: 1rem;
       }
 
-      .contact-band {
-        border-radius: 26px;
-        padding: 18px;
+      .hero-card img {
+        height: 390px;
+        object-position: 23% center;
       }
 
-      .services {
-        display: grid;
-        gap: 4px;
+      .hero-copy {
+        margin-top: -40px;
       }
 
-      .dot {
-        display: none;
+      .gold-line {
+        margin: 18px auto;
+      }
+
+      section {
+        padding: 46px 0;
       }
 
       .reasons {
@@ -560,58 +570,59 @@
         Bradley Barnes
       </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#rentals">Rentals</a>
-        <a href="#contact" class="call">Call / Text</a>
-      </nav>
+      <a class="call" href="tel:+14799707301">Call / Text</a>
     </div>
   </header>
 
   <main>
     <section class="hero" id="contact">
-      <div class="hero-content">
-        <div class="hero-spacer"></div>
+      <div class="wrap">
+        <div class="hero-card">
+          <img
+            src="17C95BBB-43B8-436C-9E60-48D2CB834860.png"
+            alt="Bradley Barnes working at a desk with property plans"
+          />
 
-        <div class="card-copy">
-          <h1>Bradley Barnes</h1>
+          <div class="hero-copy">
+            <h1>Bradley Barnes</h1>
 
-          <div class="gold-line"></div>
+            <div class="gold-line"></div>
 
-          <div class="services">
-            <span>Real Estate</span>
-            <span class="dot">•</span>
-            <span>Development</span>
-            <span class="dot">•</span>
-            <span>Rentals</span>
-          </div>
-
-          <p class="tagline">
-            Practical property help and straightforward business conversations.
-          </p>
-
-          <div class="contact-band">
-            <div class="contact-row">
-              <div class="icon">☎</div>
-              <div>
-                <span class="label">Call or text</span>
-                <a href="tel:+14799707301">479-970-7301</a>
-              </div>
+            <div class="services">
+              <span>Real Estate</span>
+              <span class="dot">•</span>
+              <span>Development</span>
+              <span class="dot">•</span>
+              <span>Rentals</span>
             </div>
 
-            <div class="contact-row">
-              <div class="icon">✉</div>
-              <div>
-                <span class="label">Email</span>
-                <a href="mailto:brad@bradleybarnes.net">brad@bradleybarnes.net</a>
-              </div>
-            </div>
+            <p class="tagline">
+              Practical property help and straightforward business conversations.
+            </p>
 
-            <div class="contact-row">
-              <div class="icon">⌂</div>
-              <div>
-                <span class="label">Website</span>
-                <a href="https://bradleybarnes.net">BradleyBarnes.net</a>
+            <div class="contact-band">
+              <div class="contact-row">
+                <div class="icon">☎</div>
+                <div>
+                  <span class="label">Call or text</span>
+                  <a href="tel:+14799707301">479-970-7301</a>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div class="icon">✉</div>
+                <div>
+                  <span class="label">Email</span>
+                  <a href="mailto:brad@bradleybarnes.net">brad@bradleybarnes.net</a>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div class="icon">⌂</div>
+                <div>
+                  <span class="label">Website</span>
+                  <a href="https://bradleybarnes.net">BradleyBarnes.net</a>
+                </div>
               </div>
             </div>
           </div>
