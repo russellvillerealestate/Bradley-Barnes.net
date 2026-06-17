@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Bradley Barnes | Real Estate, Development, Rentals</title>
+
   <meta
     name="description"
     content="Bradley Barnes helps with residential and commercial real estate, property development, rentals, property management, and practical business conversations."
@@ -12,17 +14,17 @@
   <style>
     :root {
       --navy: #102433;
-      --navy-soft: #24384a;
+      --navy-2: #22384b;
       --cream: #f7f1e5;
       --cream-2: #efe7d8;
-      --sand: #e0b253;
-      --rust: #b86b43;
+      --gold: #d7ab4d;
+      --rust: #b76b44;
       --green: #6f8668;
       --ink: #1f1c18;
       --muted: #6d665c;
       --white: #ffffff;
       --line: rgba(31, 28, 24, 0.12);
-      --shadow: 0 24px 60px rgba(16, 36, 51, 0.14);
+      --shadow: 0 22px 55px rgba(16, 36, 51, 0.14);
       --radius: 34px;
     }
 
@@ -39,8 +41,8 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(224, 178, 83, 0.18), transparent 28%),
-        radial-gradient(circle at top right, rgba(111, 134, 104, 0.14), transparent 26%),
+        radial-gradient(circle at top left, rgba(215, 171, 77, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(111, 134, 104, 0.14), transparent 24%),
         var(--cream);
       line-height: 1.45;
     }
@@ -64,7 +66,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(16, 36, 51, 0.88);
+      background: rgba(16, 36, 51, 0.9);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
@@ -91,8 +93,8 @@
       width: 34px;
       height: 34px;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--rust), var(--sand));
-      box-shadow: 0 10px 24px rgba(184, 107, 67, 0.28);
+      background: linear-gradient(135deg, var(--rust), var(--gold));
+      box-shadow: 0 10px 24px rgba(183, 107, 68, 0.28);
       flex: 0 0 auto;
     }
 
@@ -106,18 +108,19 @@
     }
 
     .hero {
-      padding: 26px 0 30px;
+      padding: 24px 0 28px;
     }
 
+    /* HERO CARD */
     .hero-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.52));
-      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 48% 52%;
+      min-height: 640px;
       border-radius: 38px;
       overflow: hidden;
+      border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      min-height: 640px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255,255,255,0.55));
     }
 
     .hero-image {
@@ -138,27 +141,50 @@
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(90deg, rgba(16,36,51,0.02) 0%, rgba(16,36,51,0.02) 64%, rgba(247,241,229,0.20) 100%);
+      background: linear-gradient(
+        90deg,
+        rgba(16,36,51,0.02) 0%,
+        rgba(16,36,51,0.02) 70%,
+        rgba(247,241,229,0.2) 100%
+      );
       pointer-events: none;
     }
 
     .hero-copy {
+      position: relative;
       background:
-        radial-gradient(circle at top right, rgba(224, 178, 83, 0.22), transparent 24%),
-        linear-gradient(180deg, rgba(247,241,229,0.95), rgba(247,241,229,0.98));
-      padding: 44px 38px;
+        radial-gradient(circle at top right, rgba(215, 171, 77, 0.18), transparent 22%),
+        linear-gradient(180deg, rgba(247,241,229,0.96), rgba(247,241,229,0.98));
+      padding: 40px 34px 28px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       text-align: center;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20px 20px, transparent 0, transparent 18px),
+        linear-gradient(rgba(111, 134, 104, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(111, 134, 104, 0.07) 1px, transparent 1px);
+      background-size: 100% 100%, 26px 26px, 26px 26px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .copy-inner {
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
       margin: 0;
       color: var(--navy);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.9rem, 6.3vw, 6.9rem);
+      font-size: clamp(4rem, 6vw, 6.8rem);
       line-height: 0.84;
       letter-spacing: -0.08em;
       font-weight: 700;
@@ -168,8 +194,8 @@
       width: 92px;
       height: 8px;
       border-radius: 999px;
-      background: var(--sand);
-      margin: 24px auto 24px;
+      background: var(--gold);
+      margin: 22px auto 22px;
     }
 
     .services {
@@ -179,52 +205,100 @@
       gap: 8px 14px;
       color: var(--navy);
       font-weight: 900;
-      font-size: clamp(1.06rem, 1.8vw, 1.42rem);
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
       letter-spacing: -0.02em;
     }
 
     .dot {
-      color: var(--sand);
+      color: var(--gold);
+    }
+
+    .tagline-wrap {
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+      justify-items: center;
+    }
+
+    .leaf-line {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 420px;
+      color: var(--green);
+      justify-content: center;
+    }
+
+    .leaf-line::before,
+    .leaf-line::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: rgba(111, 134, 104, 0.5);
+    }
+
+    .leaf {
+      font-size: 1.8rem;
+      line-height: 1;
     }
 
     .tagline {
-      margin: 26px auto 0;
-      max-width: 440px;
-      color: rgba(31, 28, 24, 0.8);
-      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      margin: 0;
+      max-width: 430px;
+      color: rgba(31, 28, 24, 0.84);
+      font-size: clamp(1rem, 1.35vw, 1.14rem);
       font-style: italic;
     }
 
     .contact-band {
-      margin-top: 30px;
-      background: linear-gradient(135deg, var(--navy-soft), var(--navy));
+      position: relative;
+      z-index: 2;
+      margin-top: 24px;
+      background: linear-gradient(135deg, var(--navy-2), var(--navy));
       color: white;
-      border-radius: 28px;
-      padding: 20px;
-      display: grid;
-      gap: 14px;
-      text-align: left;
+      border-radius: 30px 0 0 0;
+      padding: 18px 22px;
+      margin-right: -34px;
+      margin-bottom: -28px;
+      box-shadow: 0 18px 40px rgba(16, 36, 51, 0.18);
+      overflow: hidden;
+    }
+
+    .contact-band::after {
+      content: "";
+      position: absolute;
+      right: -24px;
+      top: 0;
+      width: 64px;
+      height: 64px;
+      background: var(--cream);
+      border-bottom-left-radius: 64px;
     }
 
     .contact-row {
       display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
       align-items: center;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.16);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(215, 171, 77, 0.28);
+    }
+
+    .contact-row:first-child {
+      padding-top: 0;
     }
 
     .contact-row:last-child {
-      padding-bottom: 0;
       border-bottom: none;
+      padding-bottom: 0;
     }
 
     .icon {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 999px;
-      background: var(--sand);
+      background: var(--gold);
       color: var(--navy);
       display: grid;
       place-items: center;
@@ -235,18 +309,19 @@
     .label {
       display: block;
       color: rgba(255,255,255,0.72);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       margin-bottom: 2px;
     }
 
     .contact-row a {
       display: block;
       font-weight: 900;
-      font-size: clamp(1rem, 1.5vw, 1.26rem);
+      font-size: clamp(1rem, 1.4vw, 1.25rem);
       letter-spacing: -0.03em;
       word-break: break-word;
     }
 
+    /* SECTIONS */
     section {
       padding: 54px 0;
     }
@@ -357,7 +432,7 @@
 
     .rent-strip {
       margin-top: 14px;
-      background: linear-gradient(135deg, var(--navy-soft), var(--navy));
+      background: linear-gradient(135deg, var(--navy-2), var(--navy));
       color: white;
       border-radius: 30px;
       padding: 28px;
@@ -430,36 +505,55 @@
       flex-wrap: wrap;
     }
 
+    /* TABLET */
     @media (max-width: 950px) {
       .hero-card {
-        grid-template-columns: 1fr;
-        min-height: 0;
+        min-height: 560px;
+        grid-template-columns: 46% 54%;
       }
 
       .hero-image {
-        min-height: 360px;
-      }
-
-      .hero-image img {
-        height: 360px;
+        min-height: 560px;
       }
 
       .hero-copy {
-        padding: 28px 22px;
+        padding: 28px 20px 18px;
+      }
+
+      h1 {
+        font-size: clamp(3.1rem, 6.5vw, 4.8rem);
       }
 
       .services {
-        display: grid;
-        gap: 4px;
+        gap: 6px 10px;
+        font-size: 1.05rem;
       }
 
-      .dot {
-        display: none;
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .contact-band {
+        margin-right: -20px;
+        padding: 16px 16px 16px 16px;
+      }
+
+      .contact-row {
+        grid-template-columns: 40px 1fr;
+        gap: 10px;
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .contact-row a {
+        font-size: 1rem;
       }
 
       .cards,
-      .rent-strip,
-      .reasons {
+      .rent-strip {
         grid-template-columns: 1fr;
       }
 
@@ -468,12 +562,17 @@
         min-height: 320px;
       }
 
+      .reasons {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .section-head {
         flex-direction: column;
         align-items: start;
       }
     }
 
+    /* MOBILE */
     @media (max-width: 560px) {
       .nav {
         min-height: 64px;
@@ -492,55 +591,104 @@
       }
 
       .hero-card {
+        grid-template-columns: 43% 57%;
+        min-height: 510px;
         border-radius: 28px;
       }
 
       .hero-image {
-        min-height: 300px;
+        min-height: 510px;
       }
 
       .hero-image img {
-        height: 300px;
-        object-position: center;
+        height: 100%;
+        object-position: 34% center;
       }
 
       .hero-copy {
-        padding: 24px 18px;
+        padding: 18px 14px 14px;
       }
 
       h1 {
-        font-size: clamp(3.1rem, 16vw, 4.8rem);
+        font-size: clamp(2.7rem, 11vw, 4rem);
       }
 
       .gold-line {
-        margin: 18px auto;
+        width: 74px;
+        height: 7px;
+        margin: 16px auto;
+      }
+
+      .services {
+        display: flex;
+        gap: 4px 8px;
+        font-size: 0.92rem;
+      }
+
+      .dot {
+        display: inline;
+      }
+
+      .tagline-wrap {
+        margin-top: 16px;
+        gap: 10px;
+      }
+
+      .leaf-line {
+        gap: 10px;
+      }
+
+      .leaf {
+        font-size: 1.35rem;
       }
 
       .tagline {
-        margin-top: 18px;
+        font-size: 0.9rem;
+        max-width: 240px;
       }
 
       .contact-band {
-        margin-top: 22px;
-        padding: 16px;
-        border-radius: 22px;
+        margin-top: 18px;
+        margin-right: -14px;
+        margin-bottom: -14px;
+        padding: 12px 12px 12px 12px;
+        border-radius: 22px 0 0 0;
+      }
+
+      .contact-band::after {
+        width: 44px;
+        height: 44px;
+        right: -16px;
+        border-bottom-left-radius: 44px;
       }
 
       .contact-row {
-        grid-template-columns: 38px 1fr;
+        grid-template-columns: 34px 1fr;
+        gap: 9px;
+        padding: 10px 0;
       }
 
       .icon {
-        width: 38px;
-        height: 38px;
+        width: 34px;
+        height: 34px;
+        font-size: 0.86rem;
+      }
+
+      .label {
+        font-size: 0.75rem;
+      }
+
+      .contact-row a {
+        font-size: 0.9rem;
+        line-height: 1.15;
       }
 
       section {
         padding: 42px 0;
       }
 
-      .rent-strip {
-        padding: 22px;
+      .reasons {
+        grid-template-columns: 1fr;
       }
 
       .btn {
@@ -573,21 +721,29 @@
           </div>
 
           <div class="hero-copy">
-            <h1>Bradley Barnes</h1>
+            <div class="copy-inner">
+              <h1>Bradley Barnes</h1>
 
-            <div class="gold-line"></div>
+              <div class="gold-line"></div>
 
-            <div class="services">
-              <span>Real Estate</span>
-              <span class="dot">•</span>
-              <span>Development</span>
-              <span class="dot">•</span>
-              <span>Rentals</span>
+              <div class="services">
+                <span>Real Estate</span>
+                <span class="dot">•</span>
+                <span>Development</span>
+                <span class="dot">•</span>
+                <span>Rentals</span>
+              </div>
+
+              <div class="tagline-wrap">
+                <div class="leaf-line">
+                  <span class="leaf">♧</span>
+                </div>
+
+                <p class="tagline">
+                  Practical property help and straightforward business conversations
+                </p>
+              </div>
             </div>
-
-            <p class="tagline">
-              Practical property help and straightforward business conversations.
-            </p>
 
             <div class="contact-band">
               <div class="contact-row">
@@ -599,18 +755,18 @@
               </div>
 
               <div class="contact-row">
-                <div class="icon">✉</div>
-                <div>
-                  <span class="label">Email</span>
-                  <a href="mailto:brad@bradleybarnes.net">brad@bradleybarnes.net</a>
-                </div>
-              </div>
-
-              <div class="contact-row">
                 <div class="icon">⌂</div>
                 <div>
                   <span class="label">Website</span>
                   <a href="https://bradleybarnes.net">BradleyBarnes.net</a>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div class="icon">✉</div>
+                <div>
+                  <span class="label">Email</span>
+                  <a href="mailto:brad@bradleybarnes.net">brad@bradleybarnes.net</a>
                 </div>
               </div>
             </div>
