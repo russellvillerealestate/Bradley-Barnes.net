@@ -14,7 +14,6 @@
   <style>
     :root {
       --navy: #102433;
-      --navy2: #203848;
       --cream: #f6efe1;
       --cream2: #fff8ec;
       --gold: #d9aa43;
@@ -225,27 +224,44 @@
       box-shadow: 0 -14px 40px rgba(16, 36, 51, 0.22);
     }
 
-    .contact-row {
+    .contact-heading {
+      margin: 0 0 16px;
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 800;
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .contact-stack {
       display: grid;
-      grid-template-columns: 46px 1fr;
+      gap: 12px;
+    }
+
+    .contact-button {
+      display: grid;
+      grid-template-columns: 42px 1fr;
       align-items: center;
       gap: 14px;
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(217, 170, 67, 0.28);
+      width: 100%;
+      min-height: 62px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--navy);
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+      transition: transform 0.16s ease, background 0.16s ease;
     }
 
-    .contact-row:first-child {
-      padding-top: 0;
+    .contact-button:hover {
+      transform: translateY(-2px);
+      background: #f4f0e8;
     }
 
-    .contact-row:last-child {
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-
-    .icon {
-      width: 46px;
-      height: 46px;
+    .button-icon {
+      width: 42px;
+      height: 42px;
       border-radius: 999px;
       background: var(--gold);
       color: var(--navy);
@@ -255,40 +271,25 @@
       font-size: 1rem;
     }
 
-    .label {
+    .button-text {
       display: block;
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.92rem;
-      margin-bottom: 2px;
+      text-align: left;
+      line-height: 1.08;
     }
 
-    .contact-row a {
+    .button-label {
       display: block;
-      font-weight: 900;
-      font-size: clamp(1.05rem, 1.7vw, 1.45rem);
-      letter-spacing: -0.035em;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .button-main {
+      display: block;
+      font-size: clamp(1rem, 1.35vw, 1.22rem);
+      letter-spacing: -0.03em;
       word-break: break-word;
-    }
-
-    .contact-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .small-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      background: white;
-      color: var(--navy);
-      font-weight: 900;
-      text-align: center;
-      font-size: 0.95rem;
     }
 
     section {
@@ -579,36 +580,36 @@
         border-top-left-radius: 30px;
       }
 
-      .contact-row {
-        grid-template-columns: 32px 1fr;
-        gap: 9px;
-        padding: 10px 0;
+      .contact-heading {
+        font-size: 0.72rem;
+        margin-bottom: 10px;
       }
 
-      .icon {
-        width: 32px;
-        height: 32px;
-        font-size: 0.82rem;
-      }
-
-      .label {
-        font-size: 0.7rem;
-      }
-
-      .contact-row a {
-        font-size: 0.78rem;
-        line-height: 1.15;
-      }
-
-      .contact-buttons {
-        grid-template-columns: 1fr;
+      .contact-stack {
         gap: 8px;
       }
 
-      .small-button {
-        min-height: 40px;
+      .contact-button {
+        grid-template-columns: 30px 1fr;
+        gap: 8px;
+        min-height: 44px;
+        padding: 7px 10px;
+      }
+
+      .button-icon {
+        width: 30px;
+        height: 30px;
         font-size: 0.78rem;
-        padding: 9px 10px;
+      }
+
+      .button-label {
+        font-size: 0.64rem;
+        margin-bottom: 1px;
+      }
+
+      .button-main {
+        font-size: 0.73rem;
+        line-height: 1.12;
       }
 
       section {
@@ -687,21 +688,31 @@
           </div>
 
           <div class="contact-panel">
-            <div class="contact-row">
-              <div class="icon">☎</div>
-              <div>
-                <span class="label">Call or text</span>
-                <a href="tel:+14799707301">479-970-7301</a>
-              </div>
-            </div>
+            <p class="contact-heading">Reach out directly</p>
 
-            <div class="contact-buttons">
-              <a class="small-button" href="https://russellville.rent" target="_blank" rel="noopener">
-                Russellville.rent
+            <div class="contact-stack">
+              <a class="contact-button" href="tel:+14799707301">
+                <span class="button-icon">☎</span>
+                <span class="button-text">
+                  <span class="button-label">Call</span>
+                  <span class="button-main">479-970-7301</span>
+                </span>
               </a>
 
-              <a class="small-button" href="mailto:brad@bradleybarnes.net">
-                Email Brad
+              <a class="contact-button" href="sms:+14799707301">
+                <span class="button-icon">✉</span>
+                <span class="button-text">
+                  <span class="button-label">Text</span>
+                  <span class="button-main">479-970-7301</span>
+                </span>
+              </a>
+
+              <a class="contact-button" href="mailto:brad@bradleybarnes.net">
+                <span class="button-icon">@</span>
+                <span class="button-text">
+                  <span class="button-label">Email</span>
+                  <span class="button-main">brad@bradleybarnes.net</span>
+                </span>
               </a>
             </div>
           </div>
