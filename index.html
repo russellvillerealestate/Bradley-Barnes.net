@@ -17,10 +17,11 @@
       --navy-deep: #0b1d2a;
       --cream: #fff8ec;
       --gold: #d9aa43;
+      --gold-light: #f5db91;
       --rust: #b66a43;
+      --green: #718869;
       --ink: #1d1a16;
       --muted: #6f675d;
-      --white: #ffffff;
       --shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
     }
 
@@ -102,6 +103,7 @@
     }
 
     .hero-image-card {
+      position: relative;
       background: var(--cream);
       border-radius: 34px;
       overflow: hidden;
@@ -113,6 +115,77 @@
       display: block;
       width: 100%;
       height: auto;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 10%;
+      right: 7%;
+      width: 43%;
+      text-align: center;
+      color: var(--navy);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.8rem, 6.7vw, 7.2rem);
+      line-height: 0.84;
+      letter-spacing: -0.08em;
+      font-weight: 700;
+    }
+
+    .gold-line {
+      width: 92px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--gold);
+      margin: 24px auto 22px;
+    }
+
+    .services {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: clamp(1.05rem, 1.75vw, 1.38rem);
+      letter-spacing: -0.025em;
+    }
+
+    .dot {
+      color: var(--gold);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: min(420px, 100%);
+      margin: 24px auto 18px;
+      color: var(--green);
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: rgba(113, 136, 105, 0.58);
+    }
+
+    .divider-symbol {
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .tagline {
+      margin: 0 auto;
+      max-width: 420px;
+      font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+      font-style: italic;
+      color: rgba(29, 26, 22, 0.82);
     }
 
     .quick-actions {
@@ -356,6 +429,41 @@
         padding: 18px 0 26px;
       }
 
+      .hero-text {
+        top: 7%;
+        right: 5%;
+        width: 48%;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 8vw, 4.2rem);
+      }
+
+      .gold-line {
+        width: 70px;
+        height: 6px;
+        margin: 14px auto;
+      }
+
+      .services {
+        font-size: 0.9rem;
+        gap: 4px 8px;
+      }
+
+      .divider {
+        gap: 10px;
+        margin: 14px auto 10px;
+      }
+
+      .divider-symbol {
+        font-size: 1rem;
+      }
+
+      .tagline {
+        font-size: 0.82rem;
+        max-width: 260px;
+      }
+
       .quick-actions {
         grid-template-columns: 1fr;
         border-radius: 24px;
@@ -412,6 +520,31 @@
         border-radius: 24px;
       }
 
+      .hero-text {
+        top: 6%;
+        right: 4%;
+        width: 52%;
+      }
+
+      h1 {
+        font-size: clamp(2.1rem, 10vw, 3.4rem);
+      }
+
+      .services {
+        display: grid;
+        gap: 2px;
+        font-size: 0.76rem;
+      }
+
+      .dot {
+        display: none;
+      }
+
+      .tagline {
+        font-size: 0.72rem;
+        line-height: 1.25;
+      }
+
       section {
         padding: 42px 0;
       }
@@ -445,9 +578,31 @@
       <div class="wrap">
         <div class="hero-image-card">
           <img
-            src="hero-card.jpg"
-            alt="Bradley Barnes real estate development and rentals contact card"
+            src="17C95BBB-43B8-436C-9E60-48D2CB834860.png"
+            alt="Bradley Barnes working at a desk with plans"
           />
+
+          <div class="hero-text">
+            <h1>Bradley Barnes</h1>
+
+            <div class="gold-line"></div>
+
+            <div class="services">
+              <span>Real Estate</span>
+              <span class="dot">•</span>
+              <span>Development</span>
+              <span class="dot">•</span>
+              <span>Rentals</span>
+            </div>
+
+            <div class="divider">
+              <span class="divider-symbol">♧</span>
+            </div>
+
+            <p class="tagline">
+              Practical property help and straightforward business conversations.
+            </p>
+          </div>
         </div>
 
         <div class="quick-actions">
