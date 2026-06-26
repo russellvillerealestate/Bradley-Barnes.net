@@ -16,16 +16,12 @@
       --navy: #102433;
       --navy-deep: #0b1d2a;
       --cream: #fff8ec;
-      --cream-dark: #f3ead8;
       --gold: #d9aa43;
-      --gold-light: #f5db91;
       --rust: #b66a43;
-      --green: #718869;
       --ink: #1d1a16;
       --muted: #6f675d;
       --white: #ffffff;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
-      --line: rgba(29, 26, 22, 0.14);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
     }
 
     * {
@@ -102,187 +98,61 @@
     }
 
     .hero {
-      padding: 34px 0 52px;
+      padding: 34px 0 26px;
     }
 
-    .hero-card {
-      display: grid;
-      grid-template-columns: 46% 54%;
-      min-height: 660px;
+    .hero-image-card {
+      background: var(--cream);
       border-radius: 34px;
       overflow: hidden;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background: var(--cream);
+      border: 1px solid rgba(255, 255, 255, 0.28);
     }
 
-    .hero-photo {
-      position: relative;
-      background: var(--navy);
-      min-height: 660px;
-    }
-
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+    .hero-image-card img {
       display: block;
+      width: 100%;
+      height: auto;
     }
 
-    .hero-content {
-      background:
-        radial-gradient(circle at 92% 8%, rgba(217, 170, 67, 0.18), transparent 28%),
-        linear-gradient(180deg, var(--cream), var(--cream-dark));
-      padding: clamp(28px, 4vw, 54px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-      color: var(--navy);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(4rem, 7vw, 7rem);
-      line-height: 0.84;
-      letter-spacing: -0.08em;
-      font-weight: 700;
-    }
-
-    .gold-line {
-      width: 92px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--gold);
-      margin: 24px auto 24px;
-    }
-
-    .services {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 14px;
-      color: var(--navy);
-      font-weight: 900;
-      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-      letter-spacing: -0.025em;
-    }
-
-    .dot {
-      color: var(--gold);
-    }
-
-    .leaf-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin: 24px auto 18px;
-      width: min(420px, 100%);
-      color: var(--green);
-    }
-
-    .leaf-row::before,
-    .leaf-row::after {
-      content: "";
-      height: 1px;
-      flex: 1;
-      background: rgba(113, 136, 105, 0.55);
-    }
-
-    .leaf {
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .tagline {
-      margin: 0 auto;
-      max-width: 440px;
-      font-size: clamp(1rem, 1.55vw, 1.2rem);
-      font-style: italic;
-      color: rgba(29, 26, 22, 0.82);
-    }
-
-    .contact-panel {
-      margin: 34px auto 0;
-      width: min(460px, 100%);
-      background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+    .quick-actions {
+      margin-top: 18px;
+      background: rgba(16, 36, 51, 0.94);
       border-radius: 28px;
       padding: 18px;
-      box-shadow: 0 16px 38px rgba(16, 36, 51, 0.24);
-    }
-
-    .contact-stack {
+      box-shadow: var(--shadow);
       display: grid;
-      gap: 10px;
-    }
-
-    .contact-button {
-      display: grid;
-      grid-template-columns: 38px 1fr;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      min-height: 54px;
-      padding: 8px 16px;
+    }
+
+    .action-button {
+      min-height: 58px;
       border-radius: 999px;
+      background: linear-gradient(135deg, #fffaf0, #f0d37c);
       color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       font-weight: 900;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      letter-spacing: -0.02em;
+      padding: 12px 14px;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
       transition: transform 0.16s ease, filter 0.16s ease;
     }
 
-    .contact-button:hover {
+    .action-button:hover {
       transform: translateY(-2px);
       filter: brightness(1.03);
     }
 
-    .contact-button.call {
-      background: linear-gradient(135deg, #fffaf0, #f0d37c);
-    }
-
-    .contact-button.text {
-      background: linear-gradient(135deg, #fff7e8, #d7ad6a);
-    }
-
-    .contact-button.email {
+    .action-button.email {
       background: linear-gradient(135deg, #ffffff, #e8dcc4);
     }
 
-    .button-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold-light), var(--gold));
-      color: var(--navy);
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      font-size: 0.82rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
-    }
-
-    .button-text {
-      display: block;
-      text-align: left;
-      line-height: 1.08;
-    }
-
-    .button-label {
-      display: block;
-      font-size: 0.64rem;
-      color: rgba(16, 36, 51, 0.66);
-      font-weight: 900;
-      margin-bottom: 2px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .button-main {
-      display: block;
-      font-size: clamp(0.88rem, 1.15vw, 1.02rem);
-      letter-spacing: -0.025em;
-      word-break: break-word;
+    .action-button.rentals {
+      background: linear-gradient(135deg, #fff7e8, #d7ad6a);
     }
 
     section {
@@ -334,7 +204,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: #fff8ec;
+      background: var(--cream);
       color: var(--ink);
     }
 
@@ -402,7 +272,7 @@
 
     .rent-strip {
       margin-top: 14px;
-      background: #fff8ec;
+      background: var(--cream);
       color: var(--navy);
       border-radius: 30px;
       padding: 28px;
@@ -468,7 +338,6 @@
     }
 
     .footer-row {
-      border-top: 1px solid rgba(255, 255, 255, 0.32);
       display: flex;
       justify-content: space-between;
       gap: 12px;
@@ -483,38 +352,17 @@
         background-attachment: scroll;
       }
 
-      .hero-card {
+      .hero {
+        padding: 18px 0 26px;
+      }
+
+      .quick-actions {
         grid-template-columns: 1fr;
-        min-height: auto;
+        border-radius: 24px;
       }
 
-      .hero-photo {
-        min-height: 360px;
-      }
-
-      .hero-photo img {
-        height: 360px;
-      }
-
-      .hero-content {
-        padding: 28px 22px;
-      }
-
-      h1 {
-        font-size: clamp(3.2rem, 15vw, 5rem);
-      }
-
-      .services {
-        display: grid;
-        gap: 4px;
-      }
-
-      .dot {
-        display: none;
-      }
-
-      .contact-panel {
-        margin-top: 24px;
+      .action-button {
+        min-height: 52px;
       }
 
       .cards,
@@ -560,47 +408,8 @@
         padding: 10px 14px;
       }
 
-      .hero {
-        padding: 14px 0 36px;
-      }
-
-      .hero-card {
-        border-radius: 28px;
-      }
-
-      .hero-photo {
-        min-height: 310px;
-      }
-
-      .hero-photo img {
-        height: 310px;
-        object-position: center;
-      }
-
-      .hero-content {
-        padding: 24px 18px;
-      }
-
-      .gold-line {
-        margin: 18px auto;
-      }
-
-      .leaf-row {
-        margin: 18px auto 14px;
-      }
-
-      .contact-panel {
-        padding: 14px;
-        border-radius: 22px;
-      }
-
-      .contact-button {
-        min-height: 48px;
-        padding: 8px 12px;
-      }
-
-      .button-main {
-        font-size: 0.82rem;
+      .hero-image-card {
+        border-radius: 24px;
       }
 
       section {
@@ -610,6 +419,10 @@
       .solid-section {
         padding: 22px;
         border-radius: 28px;
+      }
+
+      .rent-strip {
+        padding: 22px;
       }
     }
   </style>
@@ -630,63 +443,17 @@
   <main>
     <section class="hero" id="contact">
       <div class="wrap">
-        <div class="hero-card">
-          <div class="hero-photo">
-            <img
-              src="17C95BBB-43B8-436C-9E60-48D2CB834860.png"
-              alt="Bradley Barnes working at a desk with plans"
-            />
-          </div>
+        <div class="hero-image-card">
+          <img
+            src="hero-card.jpg"
+            alt="Bradley Barnes real estate development and rentals contact card"
+          />
+        </div>
 
-          <div class="hero-content">
-            <h1>Bradley Barnes</h1>
-
-            <div class="gold-line"></div>
-
-            <div class="services">
-              <span>Real Estate</span>
-              <span class="dot">•</span>
-              <span>Development</span>
-              <span class="dot">•</span>
-              <span>Rentals</span>
-            </div>
-
-            <div class="leaf-row">
-              <span class="leaf">♧</span>
-            </div>
-
-            <p class="tagline">
-              Practical property help and straightforward business conversations.
-            </p>
-
-            <div class="contact-panel">
-              <div class="contact-stack">
-                <a class="contact-button call" href="tel:+14799707301">
-                  <span class="button-icon">☎</span>
-                  <span class="button-text">
-                    <span class="button-label">Call</span>
-                    <span class="button-main">479-970-7301</span>
-                  </span>
-                </a>
-
-                <a class="contact-button text" href="sms:+14799707301">
-                  <span class="button-icon">✉</span>
-                  <span class="button-text">
-                    <span class="button-label">Text</span>
-                    <span class="button-main">479-970-7301</span>
-                  </span>
-                </a>
-
-                <a class="contact-button email" href="mailto:brad@bradleybarnes.net">
-                  <span class="button-icon">@</span>
-                  <span class="button-text">
-                    <span class="button-label">Email</span>
-                    <span class="button-main">brad@bradleybarnes.net</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
+        <div class="quick-actions">
+          <a class="action-button" href="tel:+14799707301">Call 479-970-7301</a>
+          <a class="action-button" href="sms:+14799707301">Text 479-970-7301</a>
+          <a class="action-button email" href="mailto:brad@bradleybarnes.net">Email Brad</a>
         </div>
       </div>
     </section>
@@ -725,19 +492,11 @@
             </div>
           </article>
 
-          <article class="card business">
+          <article class="card simple">
             <span class="num">04</span>
             <div>
               <h3>Business conversations</h3>
-              <p>If you are trying to start, buy, fix, or figure something out, I am open to lunch and a direct conversation.</p>
-            </div>
-          </article>
-
-          <article class="card simple">
-            <span class="num">05</span>
-            <div>
-              <h3>Useful opportunities</h3>
-              <p>The interesting stuff is usually underused, overlooked, or stuck.</p>
+              <p>For future entrepreneurs, early ideas, and practical next steps.</p>
             </div>
           </article>
         </div>
