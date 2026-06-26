@@ -120,8 +120,8 @@
     .hero-text {
       position: absolute;
       top: 10%;
-      right: 7%;
-      width: 43%;
+      right: 8%;
+      width: 37%;
       text-align: center;
       color: var(--navy);
     }
@@ -129,29 +129,32 @@
     h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.8rem, 6.7vw, 7.2rem);
+      font-size: clamp(3.45rem, 6.1vw, 6.55rem);
       line-height: 0.84;
       letter-spacing: -0.08em;
       font-weight: 700;
     }
 
     .gold-line {
-      width: 92px;
-      height: 8px;
+      width: 84px;
+      height: 7px;
       border-radius: 999px;
       background: var(--gold);
-      margin: 24px auto 22px;
+      margin: 24px auto 24px;
     }
 
     .services {
+      width: min(340px, 100%);
+      margin: 0 auto;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 8px 14px;
+      gap: 7px 13px;
       color: var(--navy);
       font-weight: 900;
-      font-size: clamp(1.05rem, 1.75vw, 1.38rem);
+      font-size: clamp(1rem, 1.55vw, 1.25rem);
       letter-spacing: -0.025em;
+      line-height: 1.15;
     }
 
     .dot {
@@ -162,8 +165,8 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      width: min(420px, 100%);
-      margin: 24px auto 18px;
+      width: min(360px, 100%);
+      margin: 28px auto 20px;
       color: var(--green);
     }
 
@@ -176,14 +179,15 @@
     }
 
     .divider-symbol {
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       line-height: 1;
     }
 
     .tagline {
       margin: 0 auto;
-      max-width: 420px;
-      font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+      max-width: 330px;
+      font-size: clamp(0.9rem, 1.25vw, 1.02rem);
+      line-height: 1.35;
       font-style: italic;
       color: rgba(29, 26, 22, 0.82);
     }
@@ -430,29 +434,30 @@
       }
 
       .hero-text {
-        top: 7%;
+        top: 8%;
         right: 5%;
-        width: 48%;
+        width: 46%;
       }
 
       h1 {
-        font-size: clamp(2.5rem, 8vw, 4.2rem);
+        font-size: clamp(2.45rem, 7.6vw, 4rem);
       }
 
       .gold-line {
-        width: 70px;
+        width: 68px;
         height: 6px;
         margin: 14px auto;
       }
 
       .services {
-        font-size: 0.9rem;
+        width: min(260px, 100%);
+        font-size: 0.85rem;
         gap: 4px 8px;
       }
 
       .divider {
         gap: 10px;
-        margin: 14px auto 10px;
+        margin: 16px auto 12px;
       }
 
       .divider-symbol {
@@ -460,8 +465,8 @@
       }
 
       .tagline {
-        font-size: 0.82rem;
-        max-width: 260px;
+        font-size: 0.78rem;
+        max-width: 240px;
       }
 
       .quick-actions {
@@ -527,21 +532,25 @@
       }
 
       h1 {
-        font-size: clamp(2.1rem, 10vw, 3.4rem);
+        font-size: clamp(2.05rem, 9.4vw, 3.25rem);
       }
 
       .services {
         display: grid;
         gap: 2px;
-        font-size: 0.76rem;
+        font-size: 0.72rem;
       }
 
       .dot {
         display: none;
       }
 
+      .divider {
+        margin: 12px auto 9px;
+      }
+
       .tagline {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         line-height: 1.25;
       }
 
