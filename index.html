@@ -277,14 +277,10 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-end;
       background: var(--cream);
       color: var(--ink);
-    }
-
-    .card .num {
-      font-weight: 900;
-      opacity: 0.55;
+      overflow: hidden;
     }
 
     .card h3 {
@@ -311,19 +307,21 @@
       background-position: center;
     }
 
-    .card.real-estate .num,
     .card.real-estate p {
       color: rgba(255,255,255,0.82);
     }
 
     .card.development {
       color: white;
-      background: linear-gradient(135deg, rgba(182, 106, 67, 0.96), rgba(207, 138, 90, 0.94));
+      background:
+        linear-gradient(135deg, rgba(16,36,51,0.56), rgba(182,106,67,0.42)),
+        url("mini x sunset.png");
+      background-size: cover;
+      background-position: center;
     }
 
-    .card.development .num,
     .card.development p {
-      color: rgba(255,255,255,0.84);
+      color: rgba(255,255,255,0.86);
     }
 
     .card.rentals {
@@ -335,13 +333,21 @@
       background-position: center;
     }
 
-    .card.rentals .num,
     .card.rentals p {
       color: rgba(255,255,255,0.84);
     }
 
-    .card.simple {
-      background: #f2e0b8;
+    .card.business {
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(16,36,51,0.72), rgba(16,36,51,0.48)),
+        url("talk biz.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card.business p {
+      color: rgba(255,255,255,0.86);
     }
 
     .rent-strip {
@@ -661,7 +667,6 @@
 
         <div class="cards">
           <article class="card real-estate">
-            <span class="num">01</span>
             <div>
               <h3>Residential & commercial real estate</h3>
               <p>Buying, selling, evaluating, and helping people make a clean decision.</p>
@@ -669,7 +674,6 @@
           </article>
 
           <article class="card development">
-            <span class="num">02</span>
             <div>
               <h3>Property development</h3>
               <p>Land, rough buildings, and overlooked places turned into something useful.</p>
@@ -677,15 +681,13 @@
           </article>
 
           <article class="card rentals">
-            <span class="num">03</span>
             <div>
               <h3>Rentals & management</h3>
               <p>Rental ownership, leasing, management, maintenance, and tenant/property direction.</p>
             </div>
           </article>
 
-          <article class="card simple">
-            <span class="num">04</span>
+          <article class="card business">
             <div>
               <h3>Business conversations</h3>
               <p>For future entrepreneurs, early ideas, and practical next steps.</p>
