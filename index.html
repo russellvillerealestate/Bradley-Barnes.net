@@ -119,7 +119,7 @@
     .hero-text {
       position: absolute;
       top: 8%;
-      bottom: 8%;
+      bottom: 7%;
       right: 7%;
       width: 40%;
       text-align: center;
@@ -154,22 +154,43 @@
       margin: 22px auto 0;
     }
 
-    .services {
-      width: min(420px, 100%);
+    .services-stack {
+      width: min(330px, 100%);
       margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 14px;
+      display: grid;
+      gap: 10px;
+      justify-items: center;
       color: var(--navy);
       font-weight: 900;
-      font-size: clamp(1.08rem, 1.75vw, 1.38rem);
-      letter-spacing: -0.025em;
-      line-height: 1.15;
+      font-size: clamp(1.2rem, 2vw, 1.65rem);
+      letter-spacing: -0.035em;
+      line-height: 1;
     }
 
-    .dot {
+    .service-divider {
+      width: min(210px, 80%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
       color: var(--gold);
+    }
+
+    .service-divider::before,
+    .service-divider::after {
+      content: "";
+      height: 2px;
+      flex: 1;
+      background: rgba(217, 170, 67, 0.72);
+      border-radius: 999px;
+    }
+
+    .service-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--gold);
+      display: inline-block;
+      flex: 0 0 auto;
     }
 
     .divider {
@@ -177,7 +198,7 @@
       align-items: center;
       gap: 16px;
       width: min(430px, 100%);
-      margin: 0 auto 20px;
+      margin: 0 auto 18px;
       color: var(--green);
     }
 
@@ -457,9 +478,24 @@
         margin: 12px auto 0;
       }
 
-      .services {
-        font-size: 0.9rem;
-        gap: 4px 8px;
+      .services-stack {
+        width: min(250px, 100%);
+        gap: 7px;
+        font-size: 0.95rem;
+      }
+
+      .service-divider {
+        width: min(150px, 74%);
+      }
+
+      .service-divider::before,
+      .service-divider::after {
+        height: 1px;
+      }
+
+      .service-dot {
+        width: 5px;
+        height: 5px;
       }
 
       .divider {
@@ -543,14 +579,14 @@
         font-size: clamp(2.2rem, 10vw, 3.6rem);
       }
 
-      .services {
-        display: grid;
-        gap: 2px;
-        font-size: 0.72rem;
+      .services-stack {
+        font-size: 0.76rem;
+        gap: 5px;
       }
 
-      .dot {
-        display: none;
+      .service-divider {
+        width: 110px;
+        gap: 8px;
       }
 
       .tagline {
@@ -602,11 +638,11 @@
             </div>
 
             <div class="hero-middle-block">
-              <div class="services">
+              <div class="services-stack">
                 <span>Real Estate</span>
-                <span class="dot">•</span>
+                <span class="service-divider"><span class="service-dot"></span></span>
                 <span>Development</span>
-                <span class="dot">•</span>
+                <span class="service-divider"><span class="service-dot"></span></span>
                 <span>Rentals</span>
               </div>
             </div>
