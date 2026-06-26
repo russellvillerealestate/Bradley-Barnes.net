@@ -14,8 +14,6 @@
   <style>
     :root {
       --navy: #102433;
-      --navy-dark: #071824;
-      --navy-soft: #183446;
       --cream: #fff8ec;
       --gold: #d9aa43;
       --rust: #b66a43;
@@ -84,7 +82,7 @@
     .top-action {
       min-height: 46px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--navy-soft), var(--navy-dark));
+      background: linear-gradient(135deg, #183446, #071824);
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.18);
       display: flex;
@@ -425,19 +423,22 @@
 
     @media (max-width: 900px) {
       .nav {
-        padding: 10px 0;
+        min-height: 58px;
+        padding: 8px 0;
       }
 
       .top-actions {
-        grid-template-columns: 1fr;
-        gap: 8px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
         width: 100%;
       }
 
       .top-action {
-        min-height: 38px;
-        font-size: 0.9rem;
-        padding: 8px 10px;
+        min-height: 34px;
+        font-size: 0.72rem;
+        padding: 7px 6px;
+        white-space: normal;
+        line-height: 1.1;
       }
     }
 
@@ -528,13 +529,22 @@
       }
 
       .nav {
-        min-height: auto;
+        min-height: 54px;
+        padding: 7px 0;
+      }
+
+      .top-actions {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
       }
 
       .top-action {
-        min-height: 36px;
-        font-size: 0.78rem;
-        padding: 7px 8px;
+        min-height: 32px;
+        font-size: 0.61rem;
+        padding: 6px 4px;
+        border-radius: 999px;
+        white-space: normal;
+        line-height: 1.08;
       }
 
       .hero-image-card {
@@ -578,6 +588,13 @@
 
       .rent-strip {
         padding: 22px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .top-action {
+        font-size: 0.56rem;
+        padding: 5px 3px;
       }
     }
   </style>
