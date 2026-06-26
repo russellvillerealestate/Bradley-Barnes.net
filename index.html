@@ -14,10 +14,13 @@
   <style>
     :root {
       --navy: #102433;
+      --navy-deep: #0b1d2a;
       --cream: #f6efe1;
       --cream2: #fff8ec;
       --gold: #d9aa43;
+      --gold-light: #f3d88b;
       --rust: #b66a43;
+      --rust-light: #d18a5b;
       --green: #718869;
       --ink: #1d1a16;
       --muted: #6f675d;
@@ -142,7 +145,7 @@
     .hero-words {
       position: absolute;
       z-index: 3;
-      top: 68px;
+      top: 58px;
       right: 48px;
       width: min(520px, 46%);
       text-align: center;
@@ -174,7 +177,7 @@
       font-weight: 900;
       font-size: clamp(1.1rem, 1.8vw, 1.42rem);
       letter-spacing: -0.025em;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .dot {
@@ -185,7 +188,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin: 26px auto 20px;
+      margin: 22px auto 16px;
       max-width: 420px;
       color: var(--green);
     }
@@ -217,58 +220,70 @@
       right: 0;
       bottom: 0;
       width: min(560px, 54%);
-      background: #102433;
+      background: linear-gradient(135deg, var(--navy), var(--navy-deep));
       color: white;
-      padding: 28px 34px;
-      border-top-left-radius: 54px;
+      padding: 22px 30px 24px;
+      border-top-left-radius: 46px;
       box-shadow: 0 -14px 40px rgba(16, 36, 51, 0.22);
     }
 
     .contact-heading {
-      margin: 0 0 16px;
-      color: rgba(255, 255, 255, 0.78);
+      margin: 0 0 12px;
+      color: rgba(255, 255, 255, 0.76);
       font-weight: 800;
-      font-size: 0.98rem;
+      font-size: 0.92rem;
       letter-spacing: 0.02em;
       text-align: center;
     }
 
     .contact-stack {
       display: grid;
-      gap: 12px;
+      gap: 10px;
     }
 
     .contact-button {
       display: grid;
       grid-template-columns: 42px 1fr;
       align-items: center;
-      gap: 14px;
+      gap: 13px;
       width: 100%;
-      min-height: 62px;
-      padding: 12px 18px;
+      min-height: 54px;
+      padding: 9px 16px;
       border-radius: 999px;
-      background: #ffffff;
       color: var(--navy);
       font-weight: 900;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
-      transition: transform 0.16s ease, background 0.16s ease;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.13);
+      transition: transform 0.16s ease, filter 0.16s ease;
     }
 
     .contact-button:hover {
       transform: translateY(-2px);
-      background: #f4f0e8;
+      filter: brightness(1.03);
+    }
+
+    .contact-button.call {
+      background: linear-gradient(135deg, #fffaf0, #f0d37c);
+    }
+
+    .contact-button.text {
+      background: linear-gradient(135deg, #fff7e8, #d7ad6a);
+    }
+
+    .contact-button.email {
+      background: linear-gradient(135deg, #ffffff, #e8dcc4);
     }
 
     .button-icon {
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       border-radius: 999px;
-      background: var(--gold);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
       color: var(--navy);
       display: grid;
       place-items: center;
       font-weight: 900;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
     }
 
     .button-text {
@@ -279,15 +294,17 @@
 
     .button-label {
       display: block;
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-weight: 800;
-      margin-bottom: 3px;
+      font-size: 0.74rem;
+      color: rgba(16, 36, 51, 0.66);
+      font-weight: 900;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
 
     .button-main {
       display: block;
-      font-size: clamp(1rem, 1.35vw, 1.22rem);
+      font-size: clamp(0.98rem, 1.28vw, 1.16rem);
       letter-spacing: -0.03em;
       word-break: break-word;
     }
@@ -576,40 +593,39 @@
 
       .contact-panel {
         width: 56%;
-        padding: 13px 12px;
-        border-top-left-radius: 30px;
+        padding: 11px 10px 12px;
+        border-top-left-radius: 28px;
       }
 
       .contact-heading {
-        font-size: 0.72rem;
-        margin-bottom: 10px;
+        display: none;
       }
 
       .contact-stack {
-        gap: 8px;
+        gap: 7px;
       }
 
       .contact-button {
-        grid-template-columns: 30px 1fr;
+        grid-template-columns: 28px 1fr;
         gap: 8px;
-        min-height: 44px;
-        padding: 7px 10px;
+        min-height: 40px;
+        padding: 6px 9px;
       }
 
       .button-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 0.78rem;
+        width: 28px;
+        height: 28px;
+        font-size: 0.74rem;
       }
 
       .button-label {
-        font-size: 0.64rem;
+        font-size: 0.6rem;
         margin-bottom: 1px;
       }
 
       .button-main {
-        font-size: 0.73rem;
-        line-height: 1.12;
+        font-size: 0.68rem;
+        line-height: 1.1;
       }
 
       section {
@@ -691,7 +707,7 @@
             <p class="contact-heading">Reach out directly</p>
 
             <div class="contact-stack">
-              <a class="contact-button" href="tel:+14799707301">
+              <a class="contact-button call" href="tel:+14799707301">
                 <span class="button-icon">☎</span>
                 <span class="button-text">
                   <span class="button-label">Call</span>
@@ -699,7 +715,7 @@
                 </span>
               </a>
 
-              <a class="contact-button" href="sms:+14799707301">
+              <a class="contact-button text" href="sms:+14799707301">
                 <span class="button-icon">✉</span>
                 <span class="button-text">
                   <span class="button-label">Text</span>
@@ -707,7 +723,7 @@
                 </span>
               </a>
 
-              <a class="contact-button" href="mailto:brad@bradleybarnes.net">
+              <a class="contact-button email" href="mailto:brad@bradleybarnes.net">
                 <span class="button-icon">@</span>
                 <span class="button-text">
                   <span class="button-label">Email</span>
