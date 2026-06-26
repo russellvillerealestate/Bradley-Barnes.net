@@ -20,7 +20,6 @@
       --gold: #d9aa43;
       --gold-light: #f3d88b;
       --rust: #b66a43;
-      --rust-light: #d18a5b;
       --green: #718869;
       --ink: #1d1a16;
       --muted: #6f675d;
@@ -219,40 +218,31 @@
       z-index: 4;
       right: 0;
       bottom: 0;
-      width: min(560px, 54%);
+      width: min(420px, 40.5%);
       background: linear-gradient(135deg, var(--navy), var(--navy-deep));
       color: white;
-      padding: 22px 30px 24px;
-      border-top-left-radius: 46px;
-      box-shadow: 0 -14px 40px rgba(16, 36, 51, 0.22);
-    }
-
-    .contact-heading {
-      margin: 0 0 12px;
-      color: rgba(255, 255, 255, 0.76);
-      font-weight: 800;
-      font-size: 0.92rem;
-      letter-spacing: 0.02em;
-      text-align: center;
+      padding: 16px 22px 18px;
+      border-top-left-radius: 34px;
+      box-shadow: 0 -10px 32px rgba(16, 36, 51, 0.2);
     }
 
     .contact-stack {
       display: grid;
-      gap: 10px;
+      gap: 8px;
     }
 
     .contact-button {
       display: grid;
-      grid-template-columns: 42px 1fr;
+      grid-template-columns: 32px 1fr;
       align-items: center;
-      gap: 13px;
+      gap: 10px;
       width: 100%;
-      min-height: 54px;
-      padding: 9px 16px;
+      min-height: 41px;
+      padding: 7px 12px;
       border-radius: 999px;
       color: var(--navy);
       font-weight: 900;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.13);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
       transition: transform 0.16s ease, filter 0.16s ease;
     }
 
@@ -274,38 +264,38 @@
     }
 
     .button-icon {
-      width: 38px;
-      height: 38px;
+      width: 29px;
+      height: 29px;
       border-radius: 999px;
       background: linear-gradient(135deg, var(--gold-light), var(--gold));
       color: var(--navy);
       display: grid;
       place-items: center;
       font-weight: 900;
-      font-size: 0.95rem;
+      font-size: 0.72rem;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
     }
 
     .button-text {
       display: block;
       text-align: left;
-      line-height: 1.08;
+      line-height: 1.05;
     }
 
     .button-label {
       display: block;
-      font-size: 0.74rem;
+      font-size: 0.58rem;
       color: rgba(16, 36, 51, 0.66);
       font-weight: 900;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
 
     .button-main {
       display: block;
-      font-size: clamp(0.98rem, 1.28vw, 1.16rem);
-      letter-spacing: -0.03em;
+      font-size: clamp(0.78rem, 1vw, 0.9rem);
+      letter-spacing: -0.025em;
       word-break: break-word;
     }
 
@@ -592,40 +582,36 @@
       }
 
       .contact-panel {
-        width: 56%;
-        padding: 11px 10px 12px;
-        border-top-left-radius: 28px;
-      }
-
-      .contact-heading {
-        display: none;
+        width: 42%;
+        padding: 8px 8px 9px;
+        border-top-left-radius: 21px;
       }
 
       .contact-stack {
-        gap: 7px;
+        gap: 5px;
       }
 
       .contact-button {
-        grid-template-columns: 28px 1fr;
-        gap: 8px;
-        min-height: 40px;
-        padding: 6px 9px;
+        grid-template-columns: 23px 1fr;
+        gap: 6px;
+        min-height: 30px;
+        padding: 5px 7px;
       }
 
       .button-icon {
-        width: 28px;
-        height: 28px;
-        font-size: 0.74rem;
+        width: 22px;
+        height: 22px;
+        font-size: 0.58rem;
       }
 
       .button-label {
-        font-size: 0.6rem;
-        margin-bottom: 1px;
+        font-size: 0.5rem;
+        margin-bottom: 0;
       }
 
       .button-main {
-        font-size: 0.68rem;
-        line-height: 1.1;
+        font-size: 0.55rem;
+        line-height: 1.05;
       }
 
       section {
@@ -704,8 +690,6 @@
           </div>
 
           <div class="contact-panel">
-            <p class="contact-heading">Reach out directly</p>
-
             <div class="contact-stack">
               <a class="contact-button call" href="tel:+14799707301">
                 <span class="button-icon">☎</span>
