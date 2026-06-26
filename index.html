@@ -14,6 +14,8 @@
   <style>
     :root {
       --navy: #102433;
+      --navy-dark: #071824;
+      --navy-soft: #183446;
       --cream: #fff8ec;
       --gold: #d9aa43;
       --rust: #b66a43;
@@ -66,66 +68,40 @@
       min-height: 76px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 18px;
-      padding: 10px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      font-size: 1.1rem;
-      white-space: nowrap;
-      flex: 0 0 auto;
-    }
-
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--rust), var(--gold));
-      flex: 0 0 auto;
+      padding: 12px 0;
     }
 
     .top-actions {
       display: grid;
-      grid-template-columns: repeat(3, minmax(150px, 1fr));
-      gap: 10px;
-      width: min(680px, 100%);
+      grid-template-columns: repeat(3, minmax(190px, 1fr));
+      gap: 14px;
+      width: min(980px, 100%);
       align-items: center;
     }
 
     .top-action {
-      min-height: 44px;
+      min-height: 46px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #fffaf0, #f0d37c);
-      color: var(--navy);
+      background: linear-gradient(135deg, var(--navy-soft), var(--navy-dark));
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.18);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       font-weight: 900;
       letter-spacing: -0.02em;
-      padding: 10px 14px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+      padding: 10px 16px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
       white-space: nowrap;
       transition: transform 0.16s ease, filter 0.16s ease;
     }
 
     .top-action:hover {
       transform: translateY(-2px);
-      filter: brightness(1.03);
-    }
-
-    .top-action.text {
-      background: linear-gradient(135deg, #fff7e8, #d7ad6a);
-    }
-
-    .top-action.email {
-      background: linear-gradient(135deg, #ffffff, #e8dcc4);
+      filter: brightness(1.08);
     }
 
     .hero {
@@ -449,25 +425,19 @@
 
     @media (max-width: 900px) {
       .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 12px 0;
-      }
-
-      .brand {
-        width: 100%;
-        justify-content: center;
+        padding: 10px 0;
       }
 
       .top-actions {
+        grid-template-columns: 1fr;
+        gap: 8px;
         width: 100%;
-        grid-template-columns: repeat(3, 1fr);
       }
 
       .top-action {
-        min-height: 40px;
+        min-height: 38px;
         font-size: 0.9rem;
-        padding: 9px 10px;
+        padding: 8px 10px;
       }
     }
 
@@ -561,22 +531,9 @@
         min-height: auto;
       }
 
-      .brand {
-        font-size: 1rem;
-      }
-
-      .brand-mark {
-        width: 32px;
-        height: 32px;
-      }
-
-      .top-actions {
-        gap: 7px;
-      }
-
       .top-action {
         min-height: 36px;
-        font-size: 0.72rem;
+        font-size: 0.78rem;
         padding: 7px 8px;
       }
 
@@ -629,15 +586,10 @@
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#">
-        <span class="brand-mark" aria-hidden="true"></span>
-        Bradley Barnes
-      </a>
-
       <div class="top-actions">
-        <a class="top-action call" href="tel:+14799707301">Call 479-970-7301</a>
-        <a class="top-action text" href="sms:+14799707301">Text 479-970-7301</a>
-        <a class="top-action email" href="mailto:brad@bradleybarnes.net">Email Brad</a>
+        <a class="top-action call" href="tel:+14799707301">Call: 479-970-7301</a>
+        <a class="top-action text" href="sms:+14799707301">Text: 479-970-7301</a>
+        <a class="top-action email" href="mailto:brad@bradleybarnes.net">Email: brad@bradleybarnes.net</a>
       </div>
     </div>
   </header>
